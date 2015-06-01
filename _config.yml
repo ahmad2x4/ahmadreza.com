@@ -1,0 +1,45 @@
+#
+# Blog Settings
+#
+author: Ahmadreza Atighechi
+description: "I'm a father, husband and senior developer at Readify, specialist in Microsoft Stack and passionate about Application Lifecycle Management"
+url: "http://www.ahmadreza.com"
+title: Ahmadreza Atighechi
+subtitle: "A father, husband and senior developer"
+gravatar_url: https://s.gravatar.com/avatar/594a1968ec6013d96fb16b6040ed2da8?s=200
+subscribe_rss: http://feeds.feedburner.com/ahmadreza
+
+# Github repositories
+github_user: ahmad2x4
+github_repo_url: https://github.com/ahmad2x4/ahmadreza.com.github.io/
+
+# Twitter
+twitter_user: ahmad2x4
+twitter_tweet_button: true
+
+# Stack Overflow
+stackoverflow_url: http://stackoverflow.com/users/112986/ahmadreza
+stackoverflow_button: false
+
+# fee Comments
+disqus_short_name: ahmadreza
+disqus_show_comment_count: true
+
+# Google Analytics
+google_analytics_tracking_id: UA-4419700-1
+
+
+#
+# Jekyll Settings
+#
+markdown: redcarpet
+redcarpet:
+  extensions: ["tables"]
+permalink: /:year/:month/:title/
+paginate: 20
+paginate_path: "page/:num"
+category_dir: categories
+
+gems:
+  - jekyll-redirect-from
+  - jekyll-sitemap
