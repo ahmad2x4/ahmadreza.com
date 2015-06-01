@@ -15,7 +15,7 @@ In .net world you can choose your language and write your application with best 
 It is compiler responsibility to generate assembly with proper intermediate language so that CLR (Common Language Runtime) would be able to generate native code (using JIT) and run at run time. Each compilers support subset if intermediate language and provide its flavour using syntactic sugars in the language.
   
 
-<a href="http://ahmadrezaa.files.wordpress.com/2014/01/netlanguages.png">![.Net Languages](http://ahmadrezaa.files.wordpress.com/2014/01/netlanguages_thumb.png ".Net Languages")</a> 
+![.Net Languages](http://ahmadrezaa.files.wordpress.com/2014/01/netlanguages_thumb.png ".Net Languages") 
   
 
 
@@ -49,7 +49,8 @@ Assume we have two simple project in a solution. A Console Application and a Cla
   
 
 Super class source code
-  <PRE>[sourcecode language="csharp"]
+
+```C#
 
 using System;
 
@@ -59,7 +60,7 @@ namespace ClassLibrary
     {
         protected internal void Foo()
         {
-            Console.WriteLine(&quot;Foo&quot;);
+            Console.WriteLine("Foo");
         }
 
         internal void Method()
@@ -69,8 +70,7 @@ namespace ClassLibrary
     }
 }
 
-[/sourcecode]</PRE>
-
+```
 
 
 Other class in ClassLibrary Project
@@ -78,10 +78,9 @@ Other class in ClassLibrary Project
 
 
 
-&#160;
 
+``` C#
 
-<PRE>[sourcecode language="csharp"]
 namespace ClassLibrary
 {
     public class Other
@@ -94,27 +93,15 @@ namespace ClassLibrary
         
     }
 }
-[/sourcecode]</PRE>
-
-
-
-
-&#160;
-
-
-
+```
 
 
 
 Sub class in ConsoleApplication
 
 
+``` C#
 
-
-&#160;
-
-
-<PRE>[sourcecode language="csharp"]
 using System;
 using ClassLibrary;
 
@@ -125,23 +112,19 @@ namespace ConsoleApplication
         public void Bar()
         {
             Foo();
-            Console.WriteLine(&quot;Bar&quot;);
+            Console.WriteLine("Bar");
         }
     }
 }
-[/sourcecode]</PRE>
 
-
-
-&#160;
-
-
+```
 
 
 Program.cs class in ConsoleApplication
 
 
-<PRE>[sourcecode language="csharp"]
+``` C#
+
 using System;
 
 namespace ConsoleApplication
@@ -157,19 +140,20 @@ namespace ConsoleApplication
         }
     }
 }
-[/sourcecode]</PRE>
+
+```
 
 
 
+Sub class simply calls Foo method which is defined as “protected internal” which in C# means family *or *assembly in IL. If you build and run application you’ll see that Sub class successfully accesses because although it is not in the same assembly but But sub is actually derived from Super class. the output will be 
 
-Sub class simply calls Foo method which is defined as “protected internal” which in C# means family <u>or </u>assembly in IL. If you build and run application you’ll see that Sub class successfully accesses because although it is not in the same assembly but But sub is actually derived from Super class. the output will be 
 
+```
 
-<PRE>[sourcecode language="text"]
 Foo 
 Bar
-[/sourcecode]</PRE>
 
+```
 
 
 Cool, now let mess around with the IL and see that would happen if we change that.
@@ -180,21 +164,21 @@ Cool, now let mess around with the IL and see that would happen if we change tha
 If you want to dump the IL of an assembly you can simply open a Visual Studio Command and then go to the folder your assembly exist and run ildasm with following parameters
 
 
-<PRE>[sourcecode language="text"]
+```
 
 ildasm ConsoleApplication.exe /out:ConsoleApplication.il
 
 ildasm ClassLibrary.dll /out:ClassLibrary.il
 
-[/sourcecode]</PRE>
-
+```
 
 
 Now, you can open ClassLibrary.il and have a look into generated code. Actually it is a bit long so I just copied part that I’m interested in which is Foo method 
 
 
 
-<PRE>[sourcecode language="text"]
+```
+
   .method famandassem hidebysig instance void 
           Foo() cil managed
   {
@@ -206,8 +190,8 @@ Now, you can open ClassLibrary.il and have a look into generated code. Actually 
     IL_000b:  nop
     IL_000c:  ret
   } // end of method Super::Foo
-[/sourcecode]</PRE>
 
+```
 
 
 You see that protected internal compiled to famorassem. What would happen if we change this to famandassem and assemble this IL again? Answer is CLR will prevent calling this method and will raise MethodAccessException exception when we call this from console application. But let put this into action and actually test this. So, change the famorassem to famandassem and save the file and use ilasm.exe from Visual Studio Command to assemble this code again. Before assembling this you can delete current ClassLibrary.Dll. To assemble use following command parameters:
@@ -215,13 +199,11 @@ You see that protected internal compiled to famorassem. What would happen if we 
 
 
 
-&#160;
+```
 
-
-<PRE>[sourcecode language="text"]
 ilasm ClassLibrary.il /out:ClassLibrary.dll /dll
-[/sourcecode]</PRE>
 
+```
 
 
 If you get Operation completed successfully at the end new class library is generated. If you run ConsoleApplication.exe you’ll get following exception because of violating the access level defined in the IL
@@ -229,21 +211,19 @@ If you get Operation completed successfully at the end new class library is gene
 
 
 
-&#160;
 
+```
 
-<PRE>[sourcecode language="text"]
 Unhandled Exception: System.MethodAccessException: Attempt by method 'ConsoleApp
 lication.Sub.Bar()' to access method 'ClassLibrary.Super.Foo()' failed.
    at ConsoleApplication.Sub.Bar() in f:\Users\ara\Documents\Visual Studio 2013\
 Projects\ConsoleApplication3\ConsoleApplication3\Sub.cs:line 10
    at ConsoleApplication.Program.Main() in f:\Users\ara\Documents\Visual Studio
 2013\Projects\ConsoleApplication3\ConsoleApplication3\Program.cs:line 10
-[/sourcecode]</PRE>
+
+```
 
 
-
-&#160;
 
 
 
@@ -256,7 +236,8 @@ famandassem means that only derived class within same assembly will have access 
 Open ClassLIbrary.il in a text editor. Copy following IL code which is Super class il code
 
 
-<PRE>[sourcecode language="text"]
+```
+
 // =============== CLASS MEMBERS DECLARATION ===================
 
 .class public auto ansi beforefieldinit ClassLibrary.Other
@@ -298,7 +279,7 @@ Open ClassLIbrary.il in a text editor. Copy following IL code which is Super cla
     // Code size       13 (0xd)
     .maxstack  8
     IL_0000:  nop
-    IL_0001:  ldstr      &quot;Foo&quot;
+    IL_0001:  ldstr      "Foo"
     IL_0006:  call       void [mscorlib]System.Console::WriteLine(string)
     IL_000b:  nop
     IL_000c:  ret
@@ -328,8 +309,7 @@ Open ClassLIbrary.il in a text editor. Copy following IL code which is Super cla
 
 // =============================================================
 
-[/sourcecode]</PRE>
-
+```
 
 
 Now open ConsoleApplication.il and paste this code at the end after end of Class ConsoleApplication.Sub. 
@@ -340,13 +320,14 @@ Now open ConsoleApplication.il and paste this code at the end after end of Class
 We need to do one more thing and get rid off reference to ClassLibrary.il which we don't need anymore. So right in the beginning there is some code for that. Delete that piece of code and save the file.
 
 
-<PRE>[sourcecode language="text"]
+```
+
 .assembly extern ClassLibrary
 {
   .ver 1:0:0:0
 }
-[/sourcecode]</PRE>
 
+```
 
 
 One more thing to do and it is replacing all [ClassLibrary] with empty string.
@@ -357,10 +338,11 @@ One more thing to do and it is replacing all [ClassLibrary] with empty string.
 Delete console application and assemble the il to make new ConsoleApplication.exe using following command
 
 
-<PRE>[sourcecode language="text"]
-ilasm ConsoleApplication.il /exe /out:ConsoleApplication.exe
-[/sourcecode]</PRE>
+```
 
+ilasm ConsoleApplication.il /exe /out:ConsoleApplication.exe
+
+```
 
 
 Now we have new ConsoleApplication which doesn't have reference to ClassLibrary. Run ConsoleApplication.exe you see it runs successfully.
