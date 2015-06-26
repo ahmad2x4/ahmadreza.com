@@ -16,26 +16,26 @@ Two days ago a question was asked in [StackOverflow.com](http://stackoverflow.co
  
 
 For example when you want to set
- <div style="display:inline;float:none;margin:0;padding:0;" id="scid:887EC618-8FBE-49a5-A908-2339AF2EC720:d11fb316-d936-4882-8797-89710b92356b" class="wlWriterEditableSmartContent">
+ 
 
+``` Csharp 
 
-[sourcecode language="csharp"]
-textBox1.Padding.All = 5;[/sourcecode]
-</pre></div>
+textBox1.Padding.All = 5;
 
-    
-    You will get this compiling error: Cannot modify the return value of 'System.Windows.Forms.TextBoxBase.Padding' because it is not a variable
-    
+```
 
     
-    ![](http://public.bay.livefilestore.com/y1peB4CgbDckyrE2kbNHpWrhSulExj9LvU64qvmgG_dU4Gd4EmnUUOcDl4SnKuqJEylKOAIFOqvnAzL12OoQflk1g/ErrorValueProperty.jpg?psid=1)
-    
+You will get this compiling error: Cannot modify the return value of 'System.Windows.Forms.TextBoxBase.Padding' because it is not a variable
 
+
+
+![Error Value Property](/images/2009/ErrorValueProperty.jpg)
+
+
+
+Following example is an implementation of this error:
     
-    Following example is an implementation of this error:
-    
-<div style="display:inline;float:none;margin:0;padding:0;" id="scid:887EC618-8FBE-49a5-A908-2339AF2EC720:a874c062-57dc-40ae-ac39-72f773d18212" class="wlWriterEditableSmartContent"><pre>
-[sourcecode language="csharp"]
+``` CSharp
 public class ARAControl 
 { 
     public ARAPadding Padding { get; set; } 
@@ -43,20 +43,17 @@ public class ARAControl
 public struct ARAPadding 
 { 
     public int All { get; set; } 
-}[/sourcecode]
-</pre></div>
+}
 
-    
-    If you use this you'll get mentioned error:
-    
-<div style="display:inline;float:none;margin:0;padding:0;" id="scid:887EC618-8FBE-49a5-A908-2339AF2EC720:f7048276-6b21-4770-8272-39ad55dd6f70" class="wlWriterEditableSmartContent"><pre>
-[sourcecode language="csharp"]
-    ARAControl control = new ARAControl();
-    control.Padding.All = 10;
-[/sourcecode]
+```
 
-</div>
+If you use this you'll get mentioned error:
 
+``` CSharp
+
+ARAControl control = new ARAControl();
+control.Padding.All = 10;
+
+```
 
 And why this compiling error happens. It hapens because structure is a value type. By setting this property you first call get Method. "Property Get" will return a copy of ARAPadding, so it is a value type and C# will detect out mistake and prevent compiling.
-
