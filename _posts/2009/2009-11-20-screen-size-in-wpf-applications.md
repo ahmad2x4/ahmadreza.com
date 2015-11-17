@@ -15,12 +15,10 @@ I was about to write a simple application deal with screen size in WPF. Previous
 #### Windows form application:
 
 
-
 ``` CSharp 
 this.Top = Screen.PrimaryScreen.WorkingArea.Height - this.Height;
 this.Left = Screen.PrimaryScreen.WorkingArea.Width - this.Width; [/sourcecode]
 ```
-
     
 #### WPF application:
     
@@ -29,7 +27,6 @@ this.Left = Screen.PrimaryScreen.WorkingArea.Width - this.Width; [/sourcecode]
 this.Top = System.Windows.SystemParameters.WorkArea.Height - this.Height;
 this.Left = System.Windows.SystemParameters.WorkArea.Width - this.Width; [/sourcecode]
 ```
-
 
 
 P.S. 2009/11/30: 
