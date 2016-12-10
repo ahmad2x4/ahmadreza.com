@@ -411,6 +411,7 @@ article .entry-content .video-container embed {
 }
 #content article .entry-content .archives ul li div.meta span.date,
 #content article .entry-content .archives ul li div.meta span.edit { display: none }
+#content article .entry-content p { margin-top:30px; }
 #content article h1.title { font-family: "Open Sans";font-weight:800;font-size:4em;padding-bottom:15px; line-height: 6.5rem }
 
 #comment {
