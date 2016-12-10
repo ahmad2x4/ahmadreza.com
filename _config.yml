@@ -32,7 +32,7 @@ google_analytics_tracking_id: UA-4419700-1
 #
 # Jekyll Settings
 #
-markdown: redcarpet
+markdown: kramdown
 redcarpet:
   extensions: ["tables"]
 permalink: /:year/:month/:title/
