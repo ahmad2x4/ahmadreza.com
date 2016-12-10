@@ -14,6 +14,13 @@ body {
     height: 100%;
     background: #003;
 }
+
+article .entry-content{
+    font-family: Georgia,Cambria,"Times New Roman",Times,serif;
+    line-height: 1.7em;
+    font-size: 1.4em;
+    text-align: justify;
+}
 @media screen and (max-width: 1040px) {
     body { margin: 0 20px }
 }
@@ -404,6 +411,8 @@ article .entry-content .video-container embed {
 }
 #content article .entry-content .archives ul li div.meta span.date,
 #content article .entry-content .archives ul li div.meta span.edit { display: none }
+#content article h1.title { font-family: "Open Sans";font-weight:800;font-size:4em;padding-bottom:15px; line-height: 6.5rem }
+
 #comment {
     padding: 30px 0;
     border-top: 1px solid #fff;
@@ -491,7 +500,7 @@ ul li a { -webkit-transition: all .2s ease-in;-moz-transition:all .2s ease-in;-o
     .col-container .mid-col .mid-col-container { padding: 15px 15px; overflow: hidden; }
     #content article { padding-top: 15px}
     #content article .meta { float: none }
-    #content article h1.title { font-weight: 700; font-size:2em; overflow: hidden; }
+    #content article h1.title { font-weight: 700; font-size:2em; overflow: hidden; line-height: 3rem}
     #content article .meta span { display: block; font-size: 0.9em; }
     #content article .meta span.edit { display: none }
     #content article .meta span.comments { display: none }
