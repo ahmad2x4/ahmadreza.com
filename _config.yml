@@ -2,10 +2,10 @@
 # Blog Settings
 #
 author: Ahmadreza Atighechi
-description: "I'm a father, husband and senior developer at Readify, specialist in Microsoft Stack and passionate about Application Lifecycle Management"
+description: "I'm a father, husband and lead consultant at Readify, passionate about Web, Cloud and Agile development"
 url: "http://www.ahmadreza.com"
 title: Ahmadreza Atighechi
-subtitle: "A father, husband and senior developer"
+subtitle: "A father, husband and lead consultant"
 gravatar_url: https://s.gravatar.com/avatar/594a1968ec6013d96fb16b6040ed2da8?s=200
 subscribe_rss: http://feeds.feedburner.com/ahmadreza
 
@@ -32,14 +32,14 @@ google_analytics_tracking_id: UA-4419700-1
 #
 # Jekyll Settings
 #
-markdown: redcarpet
-redcarpet:
-  extensions: ["tables"]
+markdown: kramdown
 permalink: /:year/:month/:title/
 paginate: 20
 paginate_path: "page/:num"
 category_dir: categories
 
-gems:
+plugins:
   - jekyll-redirect-from
   - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-gist

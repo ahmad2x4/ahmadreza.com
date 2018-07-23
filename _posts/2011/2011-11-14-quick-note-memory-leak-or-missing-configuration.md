@@ -16,10 +16,8 @@ The first instance with a work load will  used huge portion of memory (Especial
 Three approaches are available for [Server Memory Option](http://msdn.microsoft.com/en-us/library/ms178067.aspx) documented in the section "Sunning Multiple Instances of SQL server" and if you have selected third one which is "Do nothing", you might have same problem.
 
 
->
 
-
-*   *Do nothing (not recommended). The first instances presented with a workload will tend to allocate all of memory. Idle instances or instances started later may end up running with only a minimal amount of memory available. SQL Server makes no attempt to balance memory usage across instances. All instances will, however, respond to Windows Memory Notification signals to adjust the size of their buffer pools. As of Windows Server 2003 SP1, Windows does not balance memory across applications with the Memory Notification API. It merely provides global feedback as to the availability of memory on the system.*
+> *   *Do nothing (not recommended). The first instances presented with a workload will tend to allocate all of memory. Idle instances or instances started later may end up running with only a minimal amount of memory available. SQL Server makes no attempt to balance memory usage across instances. All instances will, however, respond to Windows Memory Notification signals to adjust the size of their buffer pools. As of Windows Server 2003 SP1, Windows does not balance memory across applications with the Memory Notification API. It merely provides global feedback as to the availability of memory on the system.*
 
 
 

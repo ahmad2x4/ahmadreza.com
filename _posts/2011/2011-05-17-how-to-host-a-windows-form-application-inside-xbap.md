@@ -13,11 +13,13 @@ tags: [XBAP]
 1.  [How to create a simple Browser Enables WPF application](http://ahmadrezaa.wordpress.com/2011/05/12/how-to-create-a-simple-browser-enabled-wpf-application/)
 2.  How to host a windows form application inside XBAP
 3.  [How to sign the XBAP with your own certificate](http://ahmadreza.com/2011/05/20/how-to-sign-the-xbap-with-your-own-certificate/)
-<div>Imagine we have an existing windows form application or you are developing a windows form application. The question is how you can make your windows application browser enabled. The answer is Browser Enabled WPF application. But usually when we create a WPF application we have to use WPF elements inside Xaml. "WindowsFormsIntegration" will help you to host your windows form application inside your WPF.</div>
-<div>For rest of this post I consider you already have previous [post](http://ahmadrezaa.wordpress.com/2011/05/12/how-to-create-a-simple-browser-enabled-wpf-application/) sample, because I'm going to update the same project. Lets open the SimpleBrowserApplication and add a reference to "WindowsFormsIntegration". As the second step I want to add new project to our solution of type "Windows Form Application" and I call it "WinFormSample".</div>
-<div>**Note: **Make sure when you are creating windows form application you selected .Net 3.5 because we are going to reference this project inside WPF project and they should be compatible.</div>
-<div>![](http://gkasoq.bay.livefilestore.com/y1pTR0DEBuQvABWLQzd6YhAQZuWSbC9O6dOBDZc0k0ikuOoYd9DcKUc8nMOo1HM4y7M1aeLGHg3mlzj61BTkYuIIVH73rTHoSwf/01WinProject.png?psid=1)</div>
-<div>That is how our solution looks like after adding windows form application and couple of simple controls on it. Next step we have to reference WinFormSample in SimpleBrowser application. Now our WPF application has got two more references which are "WindowsFormsIntegrations" and "WinFormSample". Now we have to change Page1.xaml and put the following StackPanel instead of previous &lt;Grid&gt;</div>
+ we have an existing windows form application or you are developing a windows form application. The question is how you can make your windows application browser enabled. The answer is Browser Enabled WPF application. But usually when we create a WPF application we have to use WPF elements inside Xaml. "WindowsFormsIntegration" will help you to host your windows form application inside your WPF.
+For rest of this post I consider you already have previous [post](http://ahmadrezaa.wordpress.com/2011/05/12/how-to-create-a-simple-browser-enabled-wpf-application/) sample, because I'm going to update the same project. Lets open the SimpleBrowserApplication and add a reference to "WindowsFormsIntegration". As the second step I want to add new project to our solution of type "Windows Form Application" and I call it "WinFormSample".
+**Note: **Make sure when you are creating windows form application you selected .Net 3.5 because we are going to reference this project inside WPF project and they should be compatible.
+
+![wcf](http://gkasoq.bay.livefilestore.com/y1pTR0DEBuQvABWLQzd6YhAQZuWSbC9O6dOBDZc0k0ikuOoYd9DcKUc8nMOo1HM4y7M1aeLGHg3mlzj61BTkYuIIVH73rTHoSwf/01WinProject.png?psid=1)
+
+That is how our solution looks like after adding windows form application and couple of simple controls on it. Next step we have to reference WinFormSample in SimpleBrowser application. Now our WPF application has got two more references which are "WindowsFormsIntegrations" and "WinFormSample". Now we have to change Page1.xaml and put the following StackPanel instead of previous &lt;Grid&gt;
 [sourcecode language="xml"]
 &lt;StackPanel x:Name=&quot;stackPanel&quot;&gt;
 &lt;/StackPanel&gt;
