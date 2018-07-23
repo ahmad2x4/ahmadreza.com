@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 gem 'github-pages'
-gem 'redcarpet', '~> 3.0.0'
+gem 'jekyll-gist'
 
 group :test do
   gem "html-proofer"
