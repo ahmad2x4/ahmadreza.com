@@ -17,19 +17,19 @@ If you view source of “test” application page you’ll face huge amount of c
 
 Recently browsers are delivered with quite sophisticated feature for developers. For example Internet Explorer 8 has got famous feature which is called “Developer Tools” and you can activate it by pressing F12. Having pressed F12, nice window will be displayed to help you debug your HTML and JavaScript.
 
-![](http://gkasoq.bay.livefilestore.com/y1pgb6p3gjZOvci4CQ4-CI8jaf-iguAubvX2uR7xqNdULrrHKx7My7QYsQJKS_Ey24_5EkYK3uhsZrr-BmF6jNaLllFNFjkYWiF/DeveloperTools.png?psid=1)
+![](https://gkasoq.bay.livefilestore.com/y1pgb6p3gjZOvci4CQ4-CI8jaf-iguAubvX2uR7xqNdULrrHKx7My7QYsQJKS_Ey24_5EkYK3uhsZrr-BmF6jNaLllFNFjkYWiF/DeveloperTools.png?psid=1)
 
 Ok to find start button you can press Ctrl+B or select Find -&gt; Select element by click.
 
-![](http://public.bay.livefilestore.com/y1pvcpmP8PZM8fATmWYqu4qorK5fLe5RiOrgUvLf_p3mfjiNjptuccwSSDi6mJd9oy1GThRDnutlhRfp5d7V8eeag/TestPage.png?psid=1)
+![](https://public.bay.livefilestore.com/y1pvcpmP8PZM8fATmWYqu4qorK5fLe5RiOrgUvLf_p3mfjiNjptuccwSSDi6mJd9oy1GThRDnutlhRfp5d7V8eeag/TestPage.png?psid=1)
 
 Then move your mouse to element that you want inside browse.
 
-![](http://public.bay.livefilestore.com/y1p-DlrtiOiedIskHyea18dPshXMhqGwmLTSfEjIu5HOunS6JA3IPGMJAlLk20Uxq7hw3qEKTNPGGb0faOrP8LF2Q/DeveloperTools2.png?psid=1)
+![](https://public.bay.livefilestore.com/y1p-DlrtiOiedIskHyea18dPshXMhqGwmLTSfEjIu5HOunS6JA3IPGMJAlLk20Uxq7hw3qEKTNPGGb0faOrP8LF2Q/DeveloperTools2.png?psid=1)
 
 As soon as you move your mouse inside browse you’ll notice that browser mark current element by bordering it. So find start button and then click on it. Gotcha! Developer tools automatically scrolls to input tag related to selected element. You can also scroll horizontally to find “onmouseup” which is actually responsible for counting your clicks. Ok, double click inside onmouseup and then press Ctrl+A to select all body of onmouseup.
 
-![](http://public.bay.livefilestore.com/y1pxbt7UDMLPbPjHtq80EfxPHVQ46mbNVwYx2kurFfhJRgXx00ZOXkGdLi7vTeCr5Vrdb2h9zcSRNQujGQOhHGHBA/DeveloperTools3.png?psid=1)
+![](https://public.bay.livefilestore.com/y1pxbt7UDMLPbPjHtq80EfxPHVQ46mbNVwYx2kurFfhJRgXx00ZOXkGdLi7vTeCr5Vrdb2h9zcSRNQujGQOhHGHBA/DeveloperTools3.png?psid=1)
 
 So I can copy this element into clipboard and then paste in notepad. You may also have somthing similar to following:
 <div id="scid:887EC618-8FBE-49a5-A908-2339AF2EC720:53eb48f1-2c8a-4c29-b26a-e6be489cadbc" class="wlWriterEditableSmartContent" style="display:inline;float:none;margin:0;padding:0;">[sourcecode language="javascript"]

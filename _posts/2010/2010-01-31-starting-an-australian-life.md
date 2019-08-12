@@ -36,7 +36,7 @@ tags: [Australia, Immigration]
 
 <p class="MsoNormal" style="text-indent:-.25in;line-height:normal;vertical-align:middle;margin:0 0 .0001pt 27pt;"><span><span><span style="color:black;">8.<span>      <span> </span></span></span></span><span>Move into Mid-level temporary accommodation for couple of mount</span></span><span></span>
 
-<p class="MsoNormal" style="text-indent:-.25in;line-height:normal;vertical-align:middle;margin:0 0 .0001pt 27pt;"><span><span><span style="color:black;">9.<span>      <span> </span></span></span></span><span>Get a mobile phone including device (Hopefully buy an<span> </span></span><a href="http://www.htc.com/us/products/t-mobile-hd2" target="_blank">HTC HD2</a><span>)</span></span><span></span>
+<p class="MsoNormal" style="text-indent:-.25in;line-height:normal;vertical-align:middle;margin:0 0 .0001pt 27pt;"><span><span><span style="color:black;">9.<span>      <span> </span></span></span></span><span>Get a mobile phone including device (Hopefully buy an<span> </span></span><a href="https://www.htc.com/us/products/t-mobile-hd2" target="_blank">HTC HD2</a><span>)</span></span><span></span>
 
 <p class="MsoNormal" style="line-height:normal;margin:0 0 .0001pt 27pt;"><span><span style="color:black;"> </span></span><span></span>
 

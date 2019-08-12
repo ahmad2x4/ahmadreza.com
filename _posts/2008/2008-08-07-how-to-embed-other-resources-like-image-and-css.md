@@ -28,8 +28,8 @@ tags: [.Net, VS 2005, Web Controls]
   <p style="font-family:&#039;font-size:10pt;margin:0;"><span style="color:#2b91af;">LiteralControl</span> css = <span style="color:blue;">new</span> <span style="color:#2b91af;">LiteralControl</span>(<span style="color:#2b91af;">String</span>.Format(cssLink, location));
   <p style="font-family:&#039;font-size:10pt;margin:0;">Page.Header.Controls.Add(css);
   <p style="font-family:&#039;font-size:10pt;margin:0;">&#160;
-  <p style="font-family:&#039;font-size:10pt;margin:0;">Complete sample code is available [here](http://gkasoq.bay.livefilestore.com/y1peTj3VAMB0CgQFtkrQCdRlXxnjvPJ5t6Pzku8YfWyuUSFx9bGusFmlFhOIFBGBtVtjShgUOybQp1UYCkvcTEkjw/EmbededJSSource2.zip?download&amp;psid=1)
+  <p style="font-family:&#039;font-size:10pt;margin:0;">Complete sample code is available [here](https://gkasoq.bay.livefilestore.com/y1peTj3VAMB0CgQFtkrQCdRlXxnjvPJ5t6Pzku8YfWyuUSFx9bGusFmlFhOIFBGBtVtjShgUOybQp1UYCkvcTEkjw/EmbededJSSource2.zip?download&amp;psid=1)
   
 
-<a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fahmadreza.com%2fgf%2fblog%2fhow-to-embed-other-resources-like-image-and-css%2f">![kick it on DotNetKicks.com](http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fahmadreza.com%2fgf%2fblog%2fhow-to-embed-other-resources-like-image-and-css%2f)</a>
+<a href="https://www.dotnetkicks.com/kick/?url=http%3a%2f%2fahmadreza.com%2fgf%2fblog%2fhow-to-embed-other-resources-like-image-and-css%2f">![kick it on DotNetKicks.com](https://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fahmadreza.com%2fgf%2fblog%2fhow-to-embed-other-resources-like-image-and-css%2f)</a>
 

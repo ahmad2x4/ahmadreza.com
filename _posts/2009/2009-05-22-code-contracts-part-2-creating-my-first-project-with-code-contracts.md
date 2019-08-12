@@ -52,7 +52,7 @@ namespace CodeContractTest
 
 
     
-    ![](http://gkasoq.bay.livefilestore.com/y1pwEGUN0tRu6dxokdijnyldZr4WfWrx-nQi7pHU2mrIHyhTcbGo10ji8ayYdHYz-xNHOz73AGZuV8rXZPV428u5n_NWXjoc6Ht/SettingCodeContractOptions.png?psid=1)
+    ![](https://gkasoq.bay.livefilestore.com/y1pwEGUN0tRu6dxokdijnyldZr4WfWrx-nQi7pHU2mrIHyhTcbGo10ji8ayYdHYz-xNHOz73AGZuV8rXZPV428u5n_NWXjoc6Ht/SettingCodeContractOptions.png?psid=1)
     
 
 <p style="font-family:calibri;font-size:11pt;margin:0;">Four warnings are about Array access and four suggestion message plus one summary message.
@@ -60,7 +60,7 @@ namespace CodeContractTest
 
 
     
-    ![](http://public.bay.livefilestore.com/y1pBs0IHM3468q69kDP_2J5RP29NNxZFXqQUBAVguOaynepL0KF5Jm2EKF2tqa8iZTOHcK9n5UKSWcFRux2i12O6w/ErrorAndWarnings.png?psid=1)
+    ![](https://public.bay.livefilestore.com/y1pBs0IHM3468q69kDP_2J5RP29NNxZFXqQUBAVguOaynepL0KF5Jm2EKF2tqa8iZTOHcK9n5UKSWcFRux2i12O6w/ErrorAndWarnings.png?psid=1)
     
 
 <p style="font-family:calibri;font-size:11pt;margin:0;">In order to improve code and get rid of warnings I should add preconditions in swap method. I added four line of precondition which assure item1 , item2 is in array boundary. I used Contract class and Requires static method which is used for preconditions it has two overloads first overload has a bool parameter. We can use this method to explicitly define the conditions of input parameters.
@@ -88,7 +88,7 @@ static void Swap(string[] arr, int item1, int item2)
 
 
     
-    ![](http://public.bay.livefilestore.com/y1poY9KdXrsIFuNilWTT3b8M9YpWysCGDo9xJh4uHlucvRPmvRt5GHbMZ0Tz68HCH1uszbFJtOq5_crrPxI6533qw/WarningAfterContracts.png?psid=1)
+    ![](https://public.bay.livefilestore.com/y1poY9KdXrsIFuNilWTT3b8M9YpWysCGDo9xJh4uHlucvRPmvRt5GHbMZ0Tz68HCH1uszbFJtOq5_crrPxI6533qw/WarningAfterContracts.png?psid=1)
     
 
 
@@ -108,7 +108,7 @@ Swap(new string[] { &quot;Code&quot;, &quot;Contract&quot; }, 0, 1);[/sourcecode
 
 
     
-    ![](http://public.bay.livefilestore.com/y1pw_b-tHzJKUiOjB0_Zqb3W59YOBjZGLmL9DSCXsYF-oEccgyBGQfrMVN2_nf_1tYszJM-WW6l_M0yfsr5x1-w5A/ImplicitNon-Null.png?psid=1)
+    ![](https://public.bay.livefilestore.com/y1pw_b-tHzJKUiOjB0_Zqb3W59YOBjZGLmL9DSCXsYF-oEccgyBGQfrMVN2_nf_1tYszJM-WW6l_M0yfsr5x1-w5A/ImplicitNon-Null.png?psid=1)
     
 
 
@@ -136,10 +136,10 @@ static void Swap(string[] arr, int item1, int item2)
 <p style="font-family:calibri;font-size:11pt;margin:0;">In this case developer of Swap method define contract for input parameters and there is no need to swap caller know all swap code in order to prevent bad parameter calling.
 
 
-<p style="font-family:calibri;font-size:11pt;margin:0;">You can download code from [here](http://gkasoq.bay.livefilestore.com/y1pw_b-tHzJKUgqKrlw9pLOxLozFqtBFlOmu3ovl6vcd255a9LLqPkMMBo6Zxe22f9NKvrEMAh0VZxgAKcFsGDsYA/CodeContractTest.zip?download&amp;psid=1)
+<p style="font-family:calibri;font-size:11pt;margin:0;">You can download code from [here](https://gkasoq.bay.livefilestore.com/y1pw_b-tHzJKUgqKrlw9pLOxLozFqtBFlOmu3ovl6vcd255a9LLqPkMMBo6Zxe22f9NKvrEMAh0VZxgAKcFsGDsYA/CodeContractTest.zip?download&amp;psid=1)
 
 
 
 
-<a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fahmadreza.com%2fgf%2fblog%2fcode-contracts-part-2-creating-my-first-project-with-code-contracts%2f">![kick it on DotNetKicks.com](http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fahmadreza.com%2fgf%2fblog%2fcode-contracts-part-2-creating-my-first-project-with-code-contracts%2f)</a>
+<a href="https://www.dotnetkicks.com/kick/?url=http%3a%2f%2fahmadreza.com%2fgf%2fblog%2fcode-contracts-part-2-creating-my-first-project-with-code-contracts%2f">![kick it on DotNetKicks.com](https://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fahmadreza.com%2fgf%2fblog%2fcode-contracts-part-2-creating-my-first-project-with-code-contracts%2f)</a>
 

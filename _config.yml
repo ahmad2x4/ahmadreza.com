@@ -3,11 +3,11 @@
 #
 author: Ahmadreza Atighechi
 description: "I'm a father, husband and lead consultant at Readify, passionate about Web, Cloud and Agile development"
-url: "http://www.ahmadreza.com"
+url: "https://www.ahmadreza.com"
 title: Ahmadreza Atighechi
 subtitle: "A father, husband and lead consultant"
 gravatar_url: https://s.gravatar.com/avatar/594a1968ec6013d96fb16b6040ed2da8?s=200
-subscribe_rss: http://feeds.feedburner.com/ahmadreza
+subscribe_rss: https://feeds.feedburner.com/ahmadreza
 
 # Github repositories
 github_user: ahmad2x4
@@ -18,7 +18,7 @@ twitter_user: ahmad2x4
 twitter_tweet_button: true
 
 # Stack Overflow
-stackoverflow_url: http://stackoverflow.com/users/112986/ahmadreza
+stackoverflow_url: https://stackoverflow.com/users/112986/ahmadreza
 stackoverflow_button: false
 
 # fee Comments

@@ -9,7 +9,7 @@ tags: [Code Contracts]
 ---
 
 
-![](http://ahmadrezaa.files.wordpress.com/2009/05/codecontracts_sm.png "Code Contracts Logo")
+![](https://ahmadrezaa.files.wordpress.com/2009/05/codecontracts_sm.png "Code Contracts Logo")
   <p style="font-family:calibri;font-size:11pt;margin:0;">During developing applications we have always use unwritten rule in programming or if it is written in design documents user should consider them in development. For example if developer wants to call a method which has an integer parameter and this parameter is used as an index of array he should be aware calling that method with negative value or greater than array lenght. Calling method with negative value causes runtime error.
   <p style="font-family:calibri;font-size:11pt;margin:0;">There are lots of contracts that a developer should consider during development. Recently I came across new concept (However it is in research phase) named <span style="font-weight:bold;">CodeContracts</span> which is really wonderful. It seems that this concept will be in VS 2010. CodeContracts will organized all written and unwritten rules &amp; contract in development. In order to clarify CodeContract usage imagine following code:
   
@@ -77,11 +77,11 @@ static void Swap(string[] arr, int itemIndex1, int itemIndex2)
 
 
 
-*   <a href="http://research.microsoft.com/en-us/projects/contracts/"><span style="font-family:calibri;font-size:11pt;">Microsoft Research - Code Contracts home page</span></a> 
-*   <a href="http://channel9.msdn.com/posts/Peli/Getting-started-with-Code-Contracts-in-Visual-Studio-2008/"><span style="font-family:calibri;font-size:11pt;">Tutorial Video in channel9</span></a> 
-*   <a href="http://channel9.msdn.com/pdc2008/TL51/"><span style="font-family:calibri;font-size:11pt;">Contract Checking and Automated Test Generation with Pex</span></a> 
+*   <a href="https://research.microsoft.com/en-us/projects/contracts/"><span style="font-family:calibri;font-size:11pt;">Microsoft Research - Code Contracts home page</span></a> 
+*   <a href="https://channel9.msdn.com/posts/Peli/Getting-started-with-Code-Contracts-in-Visual-Studio-2008/"><span style="font-family:calibri;font-size:11pt;">Tutorial Video in channel9</span></a> 
+*   <a href="https://channel9.msdn.com/pdc2008/TL51/"><span style="font-family:calibri;font-size:11pt;">Contract Checking and Automated Test Generation with Pex</span></a> 
 
 
 
-<a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fahmadreza.com%2fgf%2fblog%2fcode-contracts-part-1-introduction%2f">![kick it on DotNetKicks.com](http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fahmadreza.com%2fgf%2fblog%2fcode-contracts-part-1-introduction%2f)</a>
+<a href="https://www.dotnetkicks.com/kick/?url=http%3a%2f%2fahmadreza.com%2fgf%2fblog%2fcode-contracts-part-1-introduction%2f">![kick it on DotNetKicks.com](https://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fahmadreza.com%2fgf%2fblog%2fcode-contracts-part-1-introduction%2f)</a>
 

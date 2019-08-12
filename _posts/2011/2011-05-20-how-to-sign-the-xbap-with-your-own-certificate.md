@@ -10,8 +10,8 @@ tags: [XBAP]
 *I am writing a series of posts about WPF Browser Application, XBAP  and configuration tips. I'm going to host this application in IIS 5.1 and I developed them in .Net 3.5. The reason I have chosen IIS5.1 and .Net 3.5 is because of challenges I had in one of my recent projects. Configuring this type of projects is different in other versions of IIS and .Net frameworks and they are not is subject of this post series.*
 
 
-1.  [How to create a simple Browser Enables WPF application](http://ahmadrezaa.wordpress.com/2011/05/12/how-to-create-a-simple-browser-enabled-wpf-application/)
-2.  [How to host a windows form application inside XBAP](http://ahmadreza.com/2011/05/17/how-to-host-a-windows-form-application-inside-xbap/)
+1.  [How to create a simple Browser Enables WPF application](https://ahmadrezaa.wordpress.com/2011/05/12/how-to-create-a-simple-browser-enabled-wpf-application/)
+2.  [How to host a windows form application inside XBAP](https://ahmadreza.com/2011/05/17/how-to-host-a-windows-form-application-inside-xbap/)
 3.  How to sign the XBAP with your own certificate
 <div>**Note: Making a browser enabled application as full trust according to this method is not completely secured. This can be used for testing purposes in testing environments. Please select proper certificates and known trusted root certification authorities.**</div>
 Before starting I think its better to have same understanding of file extension that we are going to talk about.
@@ -50,26 +50,26 @@ Put your own password as [password] and this command will create a PFX file
 
 **Step 3:** Back to the solution explorer delete "SimpleBrowserApplication_TemporaryKey.pfx" and goto Application property page and select signing tab. Click on "Select from file" and select the PFX file you have just created.
 
-<a href="http://gkasoq.bay.livefilestore.com/y1pFsKJJV5SbKmeWkxSC7iJ-g2laeGSY_VkVN5ZGWCPeku6dJKdnN4sDdWnqkM3zLpSX-39bZVQE0MS7sb7ZGyYetm_jBRPfPoO/01SignTheClickOnce.png?psid=1">![](http://gkasoq.bay.livefilestore.com/y1pFsKJJV5SbKmeWkxSC7iJ-g2laeGSY_VkVN5ZGWCPeku6dJKdnN4sDdWnqkM3zLpSX-39bZVQE0MS7sb7ZGyYetm_jBRPfPoO/01SignTheClickOnce.png?psid=1)</a>
+<a href="https://gkasoq.bay.livefilestore.com/y1pFsKJJV5SbKmeWkxSC7iJ-g2laeGSY_VkVN5ZGWCPeku6dJKdnN4sDdWnqkM3zLpSX-39bZVQE0MS7sb7ZGyYetm_jBRPfPoO/01SignTheClickOnce.png?psid=1">![](https://gkasoq.bay.livefilestore.com/y1pFsKJJV5SbKmeWkxSC7iJ-g2laeGSY_VkVN5ZGWCPeku6dJKdnN4sDdWnqkM3zLpSX-39bZVQE0MS7sb7ZGyYetm_jBRPfPoO/01SignTheClickOnce.png?psid=1)</a>
 
-**Step 4: **Just like [before](http://ahmadreza.com/2011/05/12/how-to-create-a-simple-browser-enabled-wpf-application/)  publish it to you server.
+**Step 4: **Just like [before](https://ahmadreza.com/2011/05/12/how-to-create-a-simple-browser-enabled-wpf-application/)  publish it to you server.
 
 **Step 5: **Give certificate to the client and register the certificate on the client machine. To do this double-clicking on .cer file. You will see following window. Click on Install Certificate button.
 
-![](http://public.bay.livefilestore.com/y1pZFqlYjWUc6WMxKhEZnvPIObkf7syrmkj_3GrXsmwEKe44a3ON90H9L8IQpQ612HM2gk0BTrlQKBnZCZSwytECg/02InstallCertificate.png?psid=1)
+![](https://public.bay.livefilestore.com/y1pZFqlYjWUc6WMxKhEZnvPIObkf7syrmkj_3GrXsmwEKe44a3ON90H9L8IQpQ612HM2gk0BTrlQKBnZCZSwytECg/02InstallCertificate.png?psid=1)
 
 Follow installation wizard and click Next on the first window.
 
-![](http://public.bay.livefilestore.com/y1plD0sqjQ4lZqiA_weDaMseqiroigdUv6i-Dj8N7ClONOPN6NPPOHYEODk7yMJyVCI79cK5R4bmnArBfQ55dK0Hw/03CertificateImportWizard.png?psid=1)
+![](https://public.bay.livefilestore.com/y1plD0sqjQ4lZqiA_weDaMseqiroigdUv6i-Dj8N7ClONOPN6NPPOHYEODk7yMJyVCI79cK5R4bmnArBfQ55dK0Hw/03CertificateImportWizard.png?psid=1)
 
 In this window select "Place all certificates in the following store"  and then select "Browse..." button.
 
-*![](http://public.bay.livefilestore.com/y1plD0sqjQ4lZqx_94u5tjllRK8ghYlHog30qKU-ajAV28ST8V0gFVMzLqnF7eVbInn0RtvugNkoBiu24Q7lrTsCw/04SelectCertificateStore.png?psid=1)*
+*![](https://public.bay.livefilestore.com/y1plD0sqjQ4lZqx_94u5tjllRK8ghYlHog30qKU-ajAV28ST8V0gFVMzLqnF7eVbInn0RtvugNkoBiu24Q7lrTsCw/04SelectCertificateStore.png?psid=1)*
 
 **In this window select "Trusted Publishers" and then click Ok. Select "Next" previous windows and then select finish.
 
 **Step 6: **Redo the step 5 but this time select "Trusted Root Certification Authorities" as the certificate store.
 
-![](http://public.bay.livefilestore.com/y1puBVImTKJcP2bDTJu6iTMgASmHIEyxsqH703mZ9lyE2r91rlcRCYrr6khI_3V8KuctJ-wljsSVNBELW4DhxwROA/05TrustedRoot.png?psid=1)
+![](https://public.bay.livefilestore.com/y1puBVImTKJcP2bDTJu6iTMgASmHIEyxsqH703mZ9lyE2r91rlcRCYrr6khI_3V8KuctJ-wljsSVNBELW4DhxwROA/05TrustedRoot.png?psid=1)
 
 Now you have enabled your client to accept this XBAP application as full-trust application.

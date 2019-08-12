@@ -16,5 +16,5 @@ tags: [.Net Compact Framework, Windows Mobile]
   <p style="font-family:&#039;color:green;font-size:10pt;margin:0;">//Total milliseconds elapsed since the system started.
   <p style="font-family:&#039;font-size:10pt;margin:0;">lblTickCountVal.Text = <span style="color:#2b91af;">Environment</span>.TickCount.ToString();
   <p style="font-family:&#039;font-size:10pt;margin:0;">
-  <p style="font-family:calibri;font-size:11pt;margin:0;">[Here](http://gkasoq.bay.livefilestore.com/y1p-j36TiPUqAUB6w5kYE05nlr4sJQ6zrqwpr1ggB654bL0E7JHIehasbHjEaireeiTg9vR_nxCaAskngmyKX-o1Q/TickCountTest.zip?download&amp;psid=1) is an example of using TickCount Instead of Milliseconds
+  <p style="font-family:calibri;font-size:11pt;margin:0;">[Here](https://gkasoq.bay.livefilestore.com/y1p-j36TiPUqAUB6w5kYE05nlr4sJQ6zrqwpr1ggB654bL0E7JHIehasbHjEaireeiTg9vR_nxCaAskngmyKX-o1Q/TickCountTest.zip?download&amp;psid=1) is an example of using TickCount Instead of Milliseconds
 

@@ -13,7 +13,7 @@ The answer is **NO**, When you install multiple instances of SQL server on a si
 
 The first instance with a work load will  used huge portion of memory (Especially when you have actual data - not testing - on that instance).
 
-Three approaches are available for [Server Memory Option](http://msdn.microsoft.com/en-us/library/ms178067.aspx) documented in the section "Sunning Multiple Instances of SQL server" and if you have selected third one which is "Do nothing", you might have same problem.
+Three approaches are available for [Server Memory Option](https://msdn.microsoft.com/en-us/library/ms178067.aspx) documented in the section "Sunning Multiple Instances of SQL server" and if you have selected third one which is "Do nothing", you might have same problem.
 
 
 

@@ -9,10 +9,10 @@ tags: [C#]
 ---
 
 
-Two days ago a question was asked in [StackOverflow.com](http://stackoverflow.com/questions/1802203/setting-padding-why-it-says-padding-all-is-not-variable/1802300#1802300) and I found this question so good to prepare a post. I want to explain this question:
+Two days ago a question was asked in [StackOverflow.com](https://stackoverflow.com/questions/1802203/setting-padding-why-it-says-padding-all-is-not-variable/1802300#1802300) and I found this question so good to prepare a post. I want to explain this question:
  
 
-[Petr](http://stackoverflow.com/users/193605/petr) asked: *I do not understand why there is Control.padding.all which is int and according to hint there is set as well as get but I cannot set it (Control.Padding.All=5)? I would be grateful for explanation.*
+[Petr](https://stackoverflow.com/users/193605/petr) asked: *I do not understand why there is Control.padding.all which is int and according to hint there is set as well as get but I cannot set it (Control.Padding.All=5)? I would be grateful for explanation.*
  
 
 For example when you want to set

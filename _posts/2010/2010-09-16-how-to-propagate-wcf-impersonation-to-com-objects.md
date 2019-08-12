@@ -7,7 +7,7 @@ comments: true
 categories: [Blog]
 tags: [COM, Impersonation, WCF]
 ---
-I was working on a project to write a wrapper on a COM component in WCF. The COM object needs impersonation in some levels to provide certain functionalities to impersonated user. Basically impersonation in .Net application doesn't propagate COM calls. I’ve seen following sentence in[ How To: Use Impersonation and Delegation in ASP.NET 2.0](http://msdn.microsoft.com/en-us/library/ff647404.aspx)
+I was working on a project to write a wrapper on a COM component in WCF. The COM object needs impersonation in some levels to provide certain functionalities to impersonated user. Basically impersonation in .Net application doesn't propagate COM calls. I’ve seen following sentence in[ How To: Use Impersonation and Delegation in ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ff647404.aspx)
 
 
 > *The impersonation token does not propagate across threads if you use COM interop with components that have incompatible threading models, or if you use unmanaged techniques to create new threads*
@@ -120,7 +120,7 @@ static void Main(string[] args)
 
 But it returns different usernames which means impersonation of WCF does not propagate to COM object.
 
-Ok I posted this issue in [WCF Forum](http://social.msdn.microsoft.com/Forums/en-US/wcf/thread/ec442221-f750-4253-ac12-b41ab6e4ba1b/#c7b7fa20-b9b7-4576-9ca5-c2c21c6cf909) and I’ve got a simple response but it gave me a good clue. Allen Chen (The moderator) suggested me to use self-hosting for WCF instead of IIS hosting.
+Ok I posted this issue in [WCF Forum](https://social.msdn.microsoft.com/Forums/en-US/wcf/thread/ec442221-f750-4253-ac12-b41ab6e4ba1b/#c7b7fa20-b9b7-4576-9ca5-c2c21c6cf909) and I’ve got a simple response but it gave me a good clue. Allen Chen (The moderator) suggested me to use self-hosting for WCF instead of IIS hosting.
 
 Self-hosted WCF was great idea!  Actually it works on self-hosted. But my WCF service should be unattended so that I created a managed service for WCF hosting. To make it work I’ve created three projects. One WCF service library which is used in managed service application. And the third one is a console application for testing. I’ve called CoInitializeSecurity on constructor of my service class as following
 
