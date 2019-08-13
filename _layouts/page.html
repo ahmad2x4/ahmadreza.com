@@ -1,16 +1,25 @@
 ---
-layout: default
+layout: base
 ---
 
-<article class="page">
-    {% if page.title %}
-    <h1 class="title">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h1>
-    {% endif %}
-    <div class="entry-content">{{ content }}</div>
-</article>
-{% if site.disqus_short_name and page.comments == true %}
-<section id="comment">
-    <h1 class="title">Comments</h1>
-    <div id="disqus_thread" aria-live="polite">{% include post/disqus_thread.html %}</div>
-</section>
-{% endif %}
+{% include header.html type="page" %}
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      {{ content }}
+	    {% if page.comments %}
+        <div class="disqus-comments">
+	        {% include disqus.html %}
+        </div>
+	        {% include fb-comment.html %}
+        <div class="staticman-comments">
+          {% include staticman-comments.html %}
+        </div>
+        <div class="justcomments-comments">
+          {% include just_comments.html %}
+        </div>
+	    {% endif %}
+    </div>
+  </div>
+</div>
