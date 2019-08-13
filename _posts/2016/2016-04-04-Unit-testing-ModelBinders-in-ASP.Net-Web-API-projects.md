@@ -1,14 +1,20 @@
 ---
 layout: post
-title: "Unit testing ModelBinders in ASP.Net Web Api projects"
-date: 2016-04-04 21:25
+title: Unit testing ModelBinders in ASP.Net Web Api projects
+date: '2016-04-04 21:25'
 author: ahmadrezaa
 comments: true
-categories: [Blog]
-tags: [.Net, Web API, C#, Unit Test]
+categories:
+  - Blog
+tags:
+  - .Net
+  - Web API
+  - 'C#'
+  - Unit Test
+published: true
 ---
 
-My Colleague Matt Davies has done a blog post a couple of years ago about [Unit testing MVC3/MVC4 Model Binders](http://mdavies.net/2013/06/07/unit-testing-mvc3mvc4-model-binders/). This is a nice post but as you know Web Api Side of ASP.Net is usually using a different set of object model therefore the setting up the `BindingContext` would be different than what we have in MVC. I also searched and did not find a good blog post about how to unit test ModelBinders in ASP.NEt Web Api project, so I decided to put together this post.
+My Colleague Matt Davies had written a blog post a couple of years ago about [Unit testing MVC3/MVC4 Model Binders](http://mdavies.net/2013/06/07/unit-testing-mvc3mvc4-model-binders/). This is a nice post but as you know Web Api Side of ASP.Net is usually using a different set of object model therefore the setting up the `BindingContext` would be different than what we have in MVC. I also searched and did not find a good blog post about how to unit test ModelBinders in ASP.NEt Web Api project, so I decided to put together this post.
 
 Let’s assume we have following implementation of model binder which bind a sort expression like `FirstName desc` or `LastName` to a simple `class` structure which has `FieldName` and `Ascending` as `boolean` to indicate sorting direction. 
 Following is the code for `ModelBinder`:
