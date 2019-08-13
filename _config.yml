@@ -157,6 +157,7 @@ markdown: kramdown
 highlighter: rouge
 permalink: /:year/:month/:title/
 paginate: 5
+remote_theme: daattali/beautiful-jekyll
 
 kramdown:
   input: GFM
