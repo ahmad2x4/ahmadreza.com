@@ -2,7 +2,7 @@
 layout: post
 title: "Quick Note: Memory Leak Or Missing Configuration "
 date: 2011-11-14 17:24
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [SQL Server]

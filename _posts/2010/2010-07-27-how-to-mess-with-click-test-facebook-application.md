@@ -2,7 +2,7 @@
 layout: post
 title: "How to mess with &quot;click test&quot; facebook application"
 date: 2010-07-27 05:07
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [Developer Tools, Facebook, Internet Explorer, JavaScript]

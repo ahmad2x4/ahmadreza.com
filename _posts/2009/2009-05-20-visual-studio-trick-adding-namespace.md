@@ -2,7 +2,7 @@
 layout: post
 title: "Visual Studio trick: Adding namespace"
 date: 2009-05-20 05:17
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [VS 2008]

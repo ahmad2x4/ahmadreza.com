@@ -2,7 +2,7 @@
 layout: post
 title: "Hosting WCF Service in IIS and Configuration may be needed"
 date: 2009-05-11 15:36
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Articles]
 tags: [IIS, WCF]

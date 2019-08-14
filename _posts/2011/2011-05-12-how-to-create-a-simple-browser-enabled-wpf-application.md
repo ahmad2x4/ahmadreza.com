@@ -2,7 +2,7 @@
 layout: post
 title: "How to create a simple Browser Enabled WPF application"
 date: 2011-05-12 14:59
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [XBAP]

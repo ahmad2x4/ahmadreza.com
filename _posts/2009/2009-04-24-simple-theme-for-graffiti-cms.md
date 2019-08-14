@@ -2,7 +2,7 @@
 layout: post
 title: "Simple theme for Graffiti CMS"
 date: 2009-04-24 04:38
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [Graffiti CMS]

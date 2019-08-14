@@ -2,7 +2,7 @@
 layout: post
 title: "WEBCAMPS Sydney Day 1 / Part 1"
 date: 2010-06-07 01:39
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [Australia, Sydney, WEBCAMPS]

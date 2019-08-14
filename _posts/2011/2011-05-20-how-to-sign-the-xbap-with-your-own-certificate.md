@@ -2,7 +2,7 @@
 layout: post
 title: "How to sign the XBAP with your own certificate"
 date: 2011-05-20 09:30
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [XBAP]

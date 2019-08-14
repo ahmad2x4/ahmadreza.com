@@ -2,7 +2,7 @@
 layout: post
 title: "Code contracts (Part 2): Creating my first project with code contracts"
 date: 2009-05-22 04:35
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [Contracts]

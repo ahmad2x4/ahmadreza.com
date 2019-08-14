@@ -2,7 +2,7 @@
 layout: post
 title: "Where are the Northwind and Pubs?"
 date: 2009-04-15 10:44
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [SQL Server 2005]

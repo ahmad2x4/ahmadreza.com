@@ -2,7 +2,7 @@
 layout: post
 title: "Value type field members are in heap"
 date: 2014-01-31 00:15
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [.Net, C#, CLR, ValueType]

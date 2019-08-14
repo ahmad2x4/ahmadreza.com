@@ -2,7 +2,7 @@
 layout: post
 title: "How to change mouse cursor icon in windows mobile application"
 date: 2009-04-06 12:28
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [.Net, Windows Mobile]

@@ -2,7 +2,7 @@
 layout: post
 title: "How to embed JavaScript file in an assembly"
 date: 2008-07-22 05:10
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [Ajax, JavaScript, VS 2005]

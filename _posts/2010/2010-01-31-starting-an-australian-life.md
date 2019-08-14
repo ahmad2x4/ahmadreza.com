@@ -2,7 +2,7 @@
 layout: post
 title: "Starting an Australian life"
 date: 2010-01-31 20:15
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [Australia, Immigration]

@@ -2,7 +2,7 @@
 layout: post
 title: "Wise Installation Studio/Express 7.0"
 date: 2008-06-18 09:43
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [Packaging, Wise]

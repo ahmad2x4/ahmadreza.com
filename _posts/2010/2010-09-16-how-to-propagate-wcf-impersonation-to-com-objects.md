@@ -2,7 +2,7 @@
 layout: post
 title: "HOW TO propagate WCF Impersonation to COM objects"
 date: 2010-09-16 17:19
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [COM, Impersonation, WCF]

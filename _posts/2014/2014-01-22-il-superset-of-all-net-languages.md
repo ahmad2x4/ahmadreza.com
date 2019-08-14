@@ -2,7 +2,7 @@
 layout: post
 title: "IL superset of all .net languages"
 date: 2014-01-22 23:14
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [C#, IL]

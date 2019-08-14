@@ -2,7 +2,7 @@
 layout: post
 title: "LINQ-To-SQL Uses magic ROW_NUMBER() function"
 date: 2009-08-05 23:39
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [LINQ to SQL, SQL Server]

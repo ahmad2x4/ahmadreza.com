@@ -2,7 +2,7 @@
 layout: post
 title: "Migrating to BlogEngine.net"
 date: 2009-06-24 16:12
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [Blogengine]

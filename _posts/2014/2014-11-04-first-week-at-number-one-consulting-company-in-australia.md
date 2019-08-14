@@ -2,7 +2,7 @@
 layout: post
 title: "First week at number one consulting company in Australia"
 date: 2014-11-04 23:22
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Uncategorized]
 bigimg: /img/sydney-opera-house-by-ahmad-atighechi.jpg

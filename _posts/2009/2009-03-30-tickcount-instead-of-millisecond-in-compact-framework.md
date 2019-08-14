@@ -2,7 +2,7 @@
 layout: post
 title: "TickCount instead of millisecond in compact framework"
 date: 2009-03-30 13:42
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [.Net Compact Framework, Windows Mobile]

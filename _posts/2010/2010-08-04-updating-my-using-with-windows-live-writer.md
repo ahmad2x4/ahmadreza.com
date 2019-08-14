@@ -2,7 +2,7 @@
 layout: post
 title: "Updating my using with Windows Live Writer"
 date: 2010-08-04 19:46
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [Blog, Live Writer]

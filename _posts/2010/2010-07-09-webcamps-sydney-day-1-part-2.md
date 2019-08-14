@@ -2,7 +2,7 @@
 layout: post
 title: "WEBCAMPS Sydney Day 1 / Part 2"
 date: 2010-07-09 05:59
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [Australia, Data Dynamics, jQuery, MVC, Sydney, WEBCAMPS]

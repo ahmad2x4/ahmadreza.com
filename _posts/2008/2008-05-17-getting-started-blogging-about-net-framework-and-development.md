@@ -2,7 +2,7 @@
 layout: post
 title: "Getting started blogging about .Net Framework and development"
 date: 2008-05-17 08:16
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [Blog]

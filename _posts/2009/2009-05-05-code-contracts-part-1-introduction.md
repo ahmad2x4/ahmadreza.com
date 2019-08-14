@@ -2,7 +2,7 @@
 layout: post
 title: "Code contracts (Part 1): Introduction"
 date: 2009-05-05 12:13
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [Code Contracts]

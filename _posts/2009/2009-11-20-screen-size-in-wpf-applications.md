@@ -2,7 +2,7 @@
 layout: post
 title: "Screen size in WPF applications"
 date: 2009-11-20 10:31
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [WPF]

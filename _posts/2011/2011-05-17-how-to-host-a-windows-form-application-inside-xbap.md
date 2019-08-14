@@ -2,7 +2,7 @@
 layout: post
 title: "How to host a windows form application inside XBAP"
 date: 2011-05-17 09:29
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [XBAP]

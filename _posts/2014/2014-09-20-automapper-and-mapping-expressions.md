@@ -2,7 +2,7 @@
 layout: post
 title: "AutoMapper and mapping Expressions"
 date: 2014-09-20 10:19
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [.Net, AutoMapper, C#, MongoDB]

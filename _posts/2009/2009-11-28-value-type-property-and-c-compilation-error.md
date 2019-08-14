@@ -2,7 +2,7 @@
 layout: post
 title: "Value type property and C# compilation error"
 date: 2009-11-28 21:48
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [C#]

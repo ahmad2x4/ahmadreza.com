@@ -2,7 +2,7 @@
 layout: post
 title: "Pocket PC Developers Resources"
 date: 2008-10-28 00:07
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [.Net Compact Framework, Windows Mobile]

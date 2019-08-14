@@ -2,7 +2,7 @@
 layout: post
 title: "How to embed other resources like image and css"
 date: 2008-08-07 03:44
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [.Net, VS 2005, Web Controls]
