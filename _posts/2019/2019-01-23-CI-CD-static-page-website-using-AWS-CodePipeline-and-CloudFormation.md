@@ -2,14 +2,19 @@
 layout: post
 title: "CI/CD for static website using CodePipeline and CloudFormation"
 date: 2019-01-23 16:30
-author: ahmadrezaa
+author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [AWS, CloudFormation, S3, CodePipeline, CodeBuild, CodeDeploy]
+published: false
 ---
+## Useful links [DELETEME]
 
-Useful links https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-cod epipeline-basic-walkthrough.html
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-basic-walkthrough.html
+
 MyRepository https://github.com/ahmad2x4/aws-taskcat-sample should be renamed to something like aws-static-page
+
+
 
 ```
 {
