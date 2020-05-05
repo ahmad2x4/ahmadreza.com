@@ -72,8 +72,8 @@ However, you can still use CLI tool which is free  and successfully set up your 
 
 
 ## Hello world of IaC with Pulumi
-I want to go through setting up Pulumi and creating your first stack by what I call hello world of IaC with Pulumi. 
-"Hello world" of IaC would be something as simple as creating blob storage in your preferred cloud provider platform with your preferred runtime and language. In this post, I am going to create my stack (Blob storage) on AWS and also use Node.js runtime with typescript
+I want to go through setting up Pulumi and creating your first stack by what I call "Hello world of IaC with Pulumi". 
+"Hello world" of IaC is going to be something as simple as creating blob storage in your preferred cloud provider platform with your preferred runtime and language. In this post, I am going to create my stack (Blob storage) on AWS and also use Node.js runtime with typescript.
 
 ### Setup Pulumi
 
@@ -84,16 +84,16 @@ $ brew install pulumi
 ```
 
 ### Login to Pulumi service:
-To manage your stack, you need to log in your Pulumi CLI to a service/storage that has your stack's state. Pulumi uses this Service/Storage to keep your current state and history of changes to your stack. So each successful update to your stack bu Pulumi also updates this storage to keep track of your stack's changes.
-There are many options to login in Pulumi 
+To manage your stack, you need to initialise your Pulumi CLI that sets up storage service which is used to manage your stack's state. Pulumi uses this Service/Storage to keep your current state and history of changes to your stack. So each successful update to your stack by Pulumi also updates this storage to keep track of your stack's changes.
+There are many options you can use to initialise the Pulumi stack.
 
 - Local storage
-- Pulumi SaaS (subscription-based)
+- Pulumi SaaS (subscription-based, Software as a Service)
 - Cloud blob storage (AWS s3, Azure Blob Storage)
 
-In this example, we use AWS S3 bucket as state storage for Pulumi. To login to the storage, you need to [install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) and also [generate an Access Key](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey) and [configure your AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration) to use that Access Key to communicate with AWS account 
+In this example, we use AWS S3 bucket as state storage for Pulumi. To login to the storage, you need to [install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) [generate an Access Key](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey) and [configure your AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration) to use that Access Key to communicate with AWS account 
 
-Using terminal create pulumi state bucket 
+Using a terminal, create the pulumi state bucket 
 
 
 ``` bash
@@ -139,7 +139,7 @@ In the meantime, we can have a look at what pulumi has created as source code. T
 
 ![Folder and file structure](images/Pulumi-file-structure.png)
 
-Inside this folder, there is `index.ts` file which is the primary source code for Pulumi. There is also `package.json` which is npm package file. There is two YAML file called `Pulumi.yaml` and `Pulumi.dev.yaml` the first file is the general configuration file for Pulumi. Configurations like `name`, `runtime` and `description`. The other YAML file is per environment. Depending on the number of environments you have you'll have `Pulumi.*.yaml` file currently we only have one environment in the project which is dev; Hence, we have `Pulumi.dev.yaml`. These YAML files are defining the configuration per environment. 
+Inside this folder, there is `index.ts` file which is the primary source code for Pulumi. There is also `package.json` which is npm package file. There are two YAML file called `Pulumi.yaml` and `Pulumi.dev.yaml` the first file is the general configuration file for Pulumi. Configurations like `name`, `runtime` and `description`. The other YAML file is per environment. Depending on the number of environments you have you'll have multiple `Pulumi.*.yaml` files. Currently we only have one environment in the project which is dev therefore we have `Pulumi.dev.yaml`. These YAML files are defining the configuration per environment. 
 
 ```  yaml
 encryptionsalt: <ENCRYPTIONSALT>
@@ -163,7 +163,7 @@ export const bucketName = bucket.id;
 
 ```
 
-There is only three lines of code here the first line is importing pulumi/aws package and alias that as `aws`. Then the next line is using this API to create a new S3 bucket called `my-bucket-123` and then in the last line exports the name of the bucket. 
+There are only three lines of code here. The first line is importing pulumi/aws package and alias as `aws`. The next line is using this API to create a new S3 bucket called `my-bucket-123`. The last line exports the name of the bucket. 
 
 
 
@@ -173,7 +173,7 @@ Now the initial setup of this sample is done, and we know what it is going to bu
 $ pulumi up
 ```
 
-Next, Pulumi asks you for the passphrase. Enter the same passphrase you have chosen during the initial setup. Then it analyses the current state of the environment (which in this case not created yet) and then reports back all the resources missing. It is essential to know that Pulumi does not create the resource straight away; it gets confirmation if you want to create those resources. Also, you can inspect the details of commands/resource it should create.
+Next, Pulumi asks you for the passphrase. Enter the same passphrase you have chosen during the initial setup. Then it analyses the current state of the environment (which in this case is not created yet) and then reports back all the resources missing. It is essential to know that Pulumi does not create the resource straight away; it asks for confirmation if you want to create those resources. This allows you to inspect the details of commands/resource it should create.
 
 ```
 Resources:
@@ -204,7 +204,7 @@ Resources:
 Duration: 10s
 ```
 
-Having executed command successfully, Pulumi returns output; in this case, it returns `my-bucket-123-0fe575c`. If you notice there is an extra 7 character added to the original name that we gave to the bucket. The reason is that Pulumi can create multiple sets of stacks on the same account/region. If it does not add the postfix to the name, it would be impossible to create the two resources with the same name. 
+Having executed command successfully, Pulumi produces some output. In this case it returns `my-bucket-123-0fe575c`. If you notice there is an extra 7 character added to the original name that we gave to the bucket. The reason is that Pulumi can create multiple sets of stacks on the same account/region. If it does not add the postfix to the name, it would be impossible to create the two resources with the same name. 
 
 Alright, so that was quite a simple example with Pulumi. This example is what I call the equivalent hello world in Pulumi. Now let's get into a more real-world scenario. In the next section, we want to create a web application backed by a secured database. 
 
@@ -217,7 +217,7 @@ Following is the AWS component diagram for out application
 
 ![AWS Beanstalk connected to RDS in private subnet](images/AWS-Secure-RDS.png)
 
-We have a VPC inside this VPC we have two subnets one is public, and the other one is the private subnet. We want to create our web application in our public subnet using Elastic Beanstalk and create our database in the private subnet, so it is not accessible from outside of the VPC. It is an excellent practice to keep your database secure. Our application is a Node.js application running in a docker container in Elastic Beanstalk. 
+We have one VPC amd inside this VPC we have two subnets. One is public, and the other one is the private subnet. We want to create our web application in our public subnet using Elastic Beanstalk and create our database in the private subnet so it is not accessible from outside of the VPC. This is a recommended practice to keep your database secure. Our application is a Node.js application running in a docker container in Elastic Beanstalk. 
 
 
 Let's have a look at the folder structure first:
