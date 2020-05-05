@@ -228,9 +228,9 @@ Let's have a look at the folder structure first:
 
 #### Application code
 
-Let's start with the application source code. It is actually a simple application that tests the connection to the database. The following code snippet is `app.js` source code. First, we are assigning a few variables like Port and importing a few packages like MSSQL, HTTP, fs. Then we are defining a function called `try_connect_sql`. This function will attempt to connect to the database with the connection string passed to it. If it is successful, it returns `true`; otherwise, it returns `false`.  
+Let's start with the application source code. It is actually a simple application that tests the connection to the database. The following code snippet is in the `app.js` file. First, we are assigning a few variables like Port and importing a few packages like MSSQL, HTTP, fs. Then we are defining a function called `try_connect_sql`. This function will attempt to connect to the database with the connection string passed to it. If it is successful, it returns `true`; otherwise, it returns `false`.  
 
-The next block of code creates a simple HTTP server that responds to `GET` requests only. For any `GET` request, it attempts to connect to the database, and if the connection is successful it returns a page with a green background saying _Congratulations application is connected to RDS!_ and if could not connect to the database it returns a page with a red background saying _Unfortunately application is not connected to RDS!_.  
+The next block of code creates a simple HTTP server that responds to `GET` requests only. For any `GET` request, it attempts to connect to the database, and if the connection is successful it returns a page with a green background saying _Congratulations application is connected to RDS!_. If it could not connect to the database it returns a page with a red background saying _Unfortunately application is not connected to RDS!_.  
 
 In the end, it starts the server by listening to the Port and logs that the server has started.
 
@@ -274,7 +274,7 @@ console.log("Server running at http://127.0.0.1:" + port + "/");
 
 ```
 
-It is possible to run this simple app locally. If you want to test this, you can run `npm start` on the `src` folder. When you browse http://127.0.0.1:3000, if there is no database connection, it returns a red page, but if you have a database running, it returns a green page. You can run a SQL database in docker to test successful path by following this [document](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash).
+It is possible to run this simple app locally. If you want to test this, you can run `npm start` in the `src` folder. When you browse http://127.0.0.1:3000, if there is no database connection, it returns a red page, but if you have a database running, it returns a green page. You can run a SQL database in docker to test successful path by following this [document](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash).
 
 
 In the `package.json` file, there are two scripts, the first one is the `start` script and the second one is `package`.  This script, package up the app folder in zip format, later our infrastructure code deploys that zip file to Elastic BeansTalk.
@@ -292,7 +292,7 @@ In the `package.json` file, there are two scripts, the first one is the `start` 
 The infrastructure code is in the `infra` folder. It is written in `typescript` using Pulumi library.
 
 ##### Adding configuration 
-Pulumi encrypts secret in the configuration file using a `PASS_PHRASE` you choose and additional salt so it. Although it sounds like that is it safe to commit this configuration to repository, I didn't commit that. You can set your password and passphrase for Pulumi.
+Pulumi encrypts secret in the configuration file using a `PASS_PHRASE` you choose and an optional salt value to it. Although it sounds like that is it safe to commit this configuration to repository, I didn't commit that. You can set your password and passphrase for Pulumi using config secrets which are a more secure (and recommended) way to store sensitive data such as passphrases
 
 ```bash
 $ pulumi set config vpc_rds_dmz:dbPassword "[STRONG_DB_PASSWORD]" --secret
@@ -434,7 +434,7 @@ const tfenvtest = new aws.elasticbeanstalk.Environment("webapp-env", {
 export const endpointUrl = tfenvtest.endpointUrl;
 ```
 
-Let's go through different blocks of code and describe each block and what they mean. At the top it just imports different libraries `@pulumi/pulumi`, `@pulumi/aws` and `@pulumi/awsx` then, initialize the config object to get some values from the configuration file, in this case, the configuration value is `dbPassword` which we set up earlier. Then we create a VPC called `custom` using `awsx.ec2.Vpc` object. This class encapsulates a complete configuration of an AWS network, including the actual VPC itself, in addition to public and private subnets, route tables, and gateways, across multiple availability zones. But in this example, we use private and public subnet addresses to use for our DB and Elastic Beanstalk respectively.
+Let's go through different blocks of code to describe each block and what they mean. At the top it just imports different libraries `@pulumi/pulumi`, `@pulumi/aws` and `@pulumi/awsx` then, initialize the config object to get some values from the configuration file, in this case, the configuration value is `dbPassword` which we set up earlier. Then we create a VPC called `custom` using `awsx.ec2.Vpc` object. This class encapsulates a complete configuration of an AWS network, including the actual VPC itself, in addition to public and private subnets, route tables, and gateways, across multiple availability zones. But in this example, we use private and public subnet addresses to use for our DB and Elastic Beanstalk respectively.
 
 The next block creates a security group using `aws.ec2.SecurityGroup` to enable TCP ingress for SQL port. Later, we use this security group for our database. The next step is to create a subnet group with private subnet ids using `aws.rds.SubnetGroup`. 
 
@@ -447,7 +447,7 @@ The next step is to upload our `webapp` artifacts to s3 and make them ready for 
 $ npm run package
 ```
 
-This command packages up the whole `src` folder into a zip file called `deployment.zip`. Assuming we had already run this command and zip file is ready, the infrastructure code picks this zip file and upload to an S3 bucket called `eb-app-deploy` which is also created by infra code.
+This command packages up the whole `src` folder into a zip file called `deployment.zip`. Assuming we had already run this command and zip file is ready, the infrastructure code uploads this zip file to an S3 bucket called `eb-app-deploy` which is also created by our infrastructure code.
 
 Creating Elastic beanstalk is a bit more complected. There are a few things that should be ready before creating the application and environment.
 
@@ -461,7 +461,7 @@ Then we need to create the Elastic Beanstalk app itself. it is achievable by usi
 
 
 The next step is to create the connection string. We need to create the connection string based on values from our RDS and also database password (secure parameter we added to pulumi configuration).
-Before describing how we construct the connection string we should mention how inputs and outputs are working in pulumi. Pulumi create resources asynchronously which means outputs of a given resource might not be available immediately. 
+Before describing how we construct the connection string we should mention how inputs and outputs are working in pulumi. Pulumi creates resources asynchronously which means outputs of a given resource might not be available immediately in the next step in the sequence. 
 
 Pulumi uses a special type called output. According to pulumi documentation:
 
@@ -481,7 +481,7 @@ export const connectionString = pulumi
 
 This block of code is waiting for both address and port to become available and then when they are available runs apply function and return the connection string. 
 
-The final step is to create the environment for the Elastic Beanstalk application. This is achievable using `aws.elasticbeanstalk.Environment` class. We set the `app` parameter and `version` to previously created applications and versions. We also set the platform to "64bit Amazon Linux 2018.03 v4.13.1 running Node.js". The last property is setting which is an array of key/values. We set the `VPCId` to vpc and subnet to public subnet. `IamInstanceProfile` to the instance profile name we created earlier. `SecurityGroups` to the security group id we created. `CONNECTION_STRING` as environment variable and set the value to the connection string variable. 
+The final step is to create the environment for the Elastic Beanstalk application. This is achievable using `aws.elasticbeanstalk.Environment` class. We set the `app` parameter and `version` to previously created applications and versions. We also set the platform to "64bit Amazon Linux 2018.03 v4.13.1 running Node.js". The last property is setting which is an array of key/values. We set the `VPCId` to vpc and subnet to public subnet. `IamInstanceProfile` value is set to the instance profile name we created earlier. `SecurityGroups` is set to the security group id we created. `CONNECTION_STRING` is an environment variable and is set to the value of the connection string variable. 
 
 Then the last line returns the endpoint URL as an output so it will be printed out in console after running the pulumi command line.
 
