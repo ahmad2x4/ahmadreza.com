@@ -1,42 +1,43 @@
 ---
 layout: post
-title: "Creating a secure AWS RDS and Elastic Beanstalk with pulumi"
+title: "Creating a secure deployment of AWS RDS and Elastic Beanstalk with pulumi"
 date: 2020-05-06
 author: ahmadreza
 comments: true
 categories: [Blog]
-tags: [IaC, Pulumi, AWS, AWS RDS, AWS Elastic Beanstalk]
+tags: [IaC, Pulumi, AWS, AWS RDS, AWS Elastic Beanstalk, DevOps]
 ---
 
 ## Introduction 
 
 This post covers the following topics:
 
-- Introduction to infrastructure as code
-- Pulumi
-- Hello world of IaC with Pulumi
-- Advanced example: Creating up a secure AWS RDS and Elastic Beanstalk with Pulumi
+- Introduction to Infrastructure as Code
+- Using Pulumi to automate the deployment
+- Hello world of Infrastructure as Code (IaC) with Pulumi
+- Advanced example: Creating a secure deployment of AWS RDS and Elastic Beanstalk with Pulumi
 
-## Introduction to infrastructure as code
-IAC or infrastructure as code is getting lots of attention recently amongst DevOps teams. 
+## Introduction to Infrastructure as Code
+IAC or infrastructure as code is getting a lot of attention recently amongst DevOps teams. 
 
-Definition of infrastructure as code according to [https://en.wikipedia.org/wiki/Infrastructure_as_code](Wikipedia):
+Definition of Infrastructure as Code according to [https://en.wikipedia.org/wiki/Infrastructure_as_code](Wikipedia):
 
 _Infrastructure as code (IaC) is the process of managing and provisioning computer data centres through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools. The IT infrastructure managed by this comprises both physical types of equipment such as bare-metal servers as well as virtual machines and associated configuration resources. The definitions may be in a version control system. It can use either scripts or declarative definitions, rather than manual processes, but the term is more often used to promote declarative approaches._
 
-### Benefits of infrastructure as code
-- Traceable
-- Easy to reason 
+### Benefits of Infrastructure as Code
+- Stored in repository along with your application
+- Traceable, changes can be tracked in the same manner as code via commit history and logs
+- Easy to reason (<-- not sure what you mean here as it sounds very subjective)
 - Empowers DevOps teams
 - In-sync with your application
 
 
 ### Different types of IaC
 #### Declarative:
-In declarative IaC techniques, you define *what* you want as infrastructure, and you declare end-result state in a DSL (Domain Specific Language) or sometimes even in a popular programming language like Javascript. In other words, you declare the desired state of your environment and the framework/tool you are using creates the environment to fulfil the desired state.
+In declarative IaC techniques, you define *what* you want as infrastructure, you declare end-result state in a DSL (Domain Specific Language) or even in a popular programming language like Javascript. In other words, you declare the desired state of your environment and the framework/tool you are using creates the environment to fulfil the desired state.
 
 #### Imperative:
-In imperative IaC, approach you define *how* you want to create your infrastructure. You breakdown the end-result into instructions construct your infrastructure as code in scripting languages or similar approaches.
+With the imperative IaC approach, you define *how* you want to create your infrastructure. You breakdown the end-result into instructions using scripting languages or similar approaches which then create your infrastructure.
 
 #### Intelligent:
 The intelligent approach determines the desired state of the system and determines what needs to change before applying changes.
@@ -49,7 +50,7 @@ According to Pulumi web site:
 
 >_Pulumi is a modern infrastructure as code platform. It includes a CLI, runtime, libraries, and a hosted service that, working together, deliver a robust way of provisioning, updating, and managing cloud infrastructure. Instead of YAML or a domain-specific language (DSL), Pulumi leverages existing, familiar programming languages, including TypeScript, JavaScript, Python, Go, and .NET, and their native tools, libraries, and package managers._
 
-In terms of categories of infrastructure as code, Pulumi falls into *Declarative* category. You can declare the state of your cloud stack in your preferred language, and Pulumi analyzes the current state of the environment and determines differences and prepare a set of instructions which transform the current state of your environment to the desired state. 
+In terms of categories of infrastructure as code, Pulumi falls into *Declarative* category. You can declare the state of your cloud stack in your preferred language, Pulumi analyzes the current state of the environment, determines differences and prepare a set of instructions which transform the current state of your environment to the desired state. 
 
 Pulumi currently supports four runtime and multiple languages on those runtimes. For more information, please see [Languages](https://www.pulumi.com/docs/intro/languages/)
 
@@ -60,14 +61,14 @@ Pulumi currently supports four runtime and multiple languages on those runtimes.
 
 ### Key features and differences of Pulumi:
 
-- Since we are using an existing language, we can use techniques in that language or ecosystem of the language we are using for abstraction, code reuse defining modules.
-- No need to learn a new custom language defined by IAC framework. For example, if you want to use Terraform, you need to learn new domain-specific-language (DSL) defined by HashiCorp.
-- Pulumi figures out dependencies and manages concurrency. For example, when id of a resource is used in another resource, Pulumi automatically waits for the creation of the first resource to acquire values required by the other resource and then attempt to create the other resource.
-- Most cloud providers have their definition of IAC, which is usually in the form of JSON or YAML files which is usually big bloated files which are hard to read and is difficult to reason about your code. However, Pulumi's code is in your preferred language, which is much more readable than the native option.
+- Since we are using an existing language, we can use techniques in that language or ecosystem of the language for abstraction, code reuse, and defining modules.
+- No need to learn a new custom language defined by an IaC framework. For example, if you want to use (https://www.terraform.io/)[Terraform], you need to learn new domain-specific-language (DSL) defined by HashiCorp.
+- Pulumi figures out dependencies and manages concurrency. For example, when the ID of a resource is used in another resource, Pulumi automatically waits for the creation of the first resource to acquire values required by the other resource and then attempt to create the other resource.
+- Most cloud providers have their definition of IaC. This can be in the form of JSON or YAML files which can often result in big bloated files that are hard to read and difficult to reason about your code. However, Pulumi's code is in your preferred language, which is much more familiar and therefore readable than the native option.
 
 Pulumi is actually a command-line tool (CLI) and some libraries in different languages supported by Pulumi. Pulumi also has a paid subscription-based platform which provides additional services. For example, features like continuous integration and continuous deployment, CrossGuard Policy as code, Security and additional support.
 
-However, you can still use CLI tool which is free  and successfully set up your infrastructure as code using you  
+However, you can still use CLI tool which is free  and successfully set up your infrastructure as code using you ???????? <-- Missing? 
 
 
 ## Hello world of IaC with Pulumi
