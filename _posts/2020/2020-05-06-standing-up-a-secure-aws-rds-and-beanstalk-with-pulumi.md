@@ -1,42 +1,43 @@
 ---
 layout: post
-title: "Creating a secure AWS RDS and Elastic Beanstalk with pulumi"
+title: "Creating a secure deployment of AWS RDS and Elastic Beanstalk with pulumi"
 date: 2020-05-06
 author: ahmadreza
 comments: true
 categories: [Blog]
-tags: [IaC, Pulumi, AWS, AWS RDS, AWS Elastic Beanstalk]
+tags: [IaC, Pulumi, AWS, AWS RDS, AWS Elastic Beanstalk, DevOps]
 ---
 
 ## Introduction 
 
 This post covers the following topics:
 
-- Introduction to infrastructure as code
-- Pulumi
-- Hello world of IaC with Pulumi
-- Advanced example: Creating up a secure AWS RDS and Elastic Beanstalk with Pulumi
+- Introduction to Infrastructure as Code
+- Using Pulumi to automate the deployment
+- Hello world of Infrastructure as Code (IaC) with Pulumi
+- Advanced example: Creating a secure deployment of AWS RDS and Elastic Beanstalk with Pulumi
 
-## Introduction to infrastructure as code
-IAC or infrastructure as code is getting lots of attention recently amongst DevOps teams. 
+## Introduction to Infrastructure as Code
+IAC or infrastructure as code is getting a lot of attention recently amongst DevOps teams. 
 
-Definition of infrastructure as code according to [https://en.wikipedia.org/wiki/Infrastructure_as_code](Wikipedia):
+Definition of Infrastructure as Code according to [https://en.wikipedia.org/wiki/Infrastructure_as_code](Wikipedia):
 
 _Infrastructure as code (IaC) is the process of managing and provisioning computer data centres through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools. The IT infrastructure managed by this comprises both physical types of equipment such as bare-metal servers as well as virtual machines and associated configuration resources. The definitions may be in a version control system. It can use either scripts or declarative definitions, rather than manual processes, but the term is more often used to promote declarative approaches._
 
-### Benefits of infrastructure as code
-- Traceable
-- Easy to reason 
+### Benefits of Infrastructure as Code
+- Stored in repository along with your application
+- Traceable, changes can be tracked in the same manner as code via commit history and logs
+- Easy to reason (<-- not sure what you mean here as it sounds very subjective)
 - Empowers DevOps teams
 - In-sync with your application
 
 
 ### Different types of IaC
 #### Declarative:
-In declarative IaC techniques, you define *what* you want as infrastructure, and you declare end-result state in a DSL (Domain Specific Language) or sometimes even in a popular programming language like Javascript. In other words, you declare the desired state of your environment and the framework/tool you are using creates the environment to fulfil the desired state.
+In declarative IaC techniques, you define *what* you want as infrastructure, you declare end-result state in a DSL (Domain Specific Language) or even in a popular programming language like Javascript. In other words, you declare the desired state of your environment and the framework/tool you are using creates the environment to fulfil the desired state.
 
 #### Imperative:
-In imperative IaC, approach you define *how* you want to create your infrastructure. You breakdown the end-result into instructions construct your infrastructure as code in scripting languages or similar approaches.
+With the imperative IaC approach, you define *how* you want to create your infrastructure. You breakdown the end-result into instructions using scripting languages or similar approaches which then create your infrastructure.
 
 #### Intelligent:
 The intelligent approach determines the desired state of the system and determines what needs to change before applying changes.
@@ -49,7 +50,7 @@ According to Pulumi web site:
 
 >_Pulumi is a modern infrastructure as code platform. It includes a CLI, runtime, libraries, and a hosted service that, working together, deliver a robust way of provisioning, updating, and managing cloud infrastructure. Instead of YAML or a domain-specific language (DSL), Pulumi leverages existing, familiar programming languages, including TypeScript, JavaScript, Python, Go, and .NET, and their native tools, libraries, and package managers._
 
-In terms of categories of infrastructure as code, Pulumi falls into *Declarative* category. You can declare the state of your cloud stack in your preferred language, and Pulumi analyzes the current state of the environment and determines differences and prepare a set of instructions which transform the current state of your environment to the desired state. 
+In terms of categories of infrastructure as code, Pulumi falls into *Declarative* category. You can declare the state of your cloud stack in your preferred language, Pulumi analyzes the current state of the environment, determines differences and prepare a set of instructions which transform the current state of your environment to the desired state. 
 
 Pulumi currently supports four runtime and multiple languages on those runtimes. For more information, please see [Languages](https://www.pulumi.com/docs/intro/languages/)
 
@@ -60,19 +61,19 @@ Pulumi currently supports four runtime and multiple languages on those runtimes.
 
 ### Key features and differences of Pulumi:
 
-- Since we are using an existing language, we can use techniques in that language or ecosystem of the language we are using for abstraction, code reuse defining modules.
-- No need to learn a new custom language defined by IAC framework. For example, if you want to use Terraform, you need to learn new domain-specific-language (DSL) defined by HashiCorp.
-- Pulumi figures out dependencies and manages concurrency. For example, when id of a resource is used in another resource, Pulumi automatically waits for the creation of the first resource to acquire values required by the other resource and then attempt to create the other resource.
-- Most cloud providers have their definition of IAC, which is usually in the form of JSON or YAML files which is usually big bloated files which are hard to read and is difficult to reason about your code. However, Pulumi's code is in your preferred language, which is much more readable than the native option.
+- Since we are using an existing language, we can use techniques in that language or ecosystem of the language for abstraction, code reuse, and defining modules.
+- No need to learn a new custom language defined by an IaC framework. For example, if you want to use (https://www.terraform.io/)[Terraform], you need to learn new domain-specific-language (DSL) defined by HashiCorp.
+- Pulumi figures out dependencies and manages concurrency. For example, when the ID of a resource is used in another resource, Pulumi automatically waits for the creation of the first resource to acquire values required by the other resource and then attempt to create the other resource.
+- Most cloud providers have their definition of IaC. This can be in the form of JSON or YAML files which can often result in big bloated files that are hard to read and difficult to reason about your code. However, Pulumi's code is in your preferred language, which is much more familiar and therefore readable than the native option.
 
 Pulumi is actually a command-line tool (CLI) and some libraries in different languages supported by Pulumi. Pulumi also has a paid subscription-based platform which provides additional services. For example, features like continuous integration and continuous deployment, CrossGuard Policy as code, Security and additional support.
 
-However, you can still use CLI tool which is free  and successfully set up your infrastructure as code using you  
+However, you can still use CLI tool which is free  and successfully set up your infrastructure as code using you ???????? <-- Missing? 
 
 
 ## Hello world of IaC with Pulumi
-I want to go through setting up Pulumi and creating your first stack by what I call hello world of IaC with Pulumi. 
-"Hello world" of IaC would be something as simple as creating blob storage in your preferred cloud provider platform with your preferred runtime and language. In this post, I am going to create my stack (Blob storage) on AWS and also use Node.js runtime with typescript
+I want to go through setting up Pulumi and creating your first stack by what I call "Hello world of IaC with Pulumi". 
+"Hello world" of IaC is going to be something as simple as creating blob storage in your preferred cloud provider platform with your preferred runtime and language. In this post, I am going to create my stack (Blob storage) on AWS and also use Node.js runtime with typescript.
 
 ### Setup Pulumi
 
@@ -83,16 +84,16 @@ $ brew install pulumi
 ```
 
 ### Login to Pulumi service:
-To manage your stack, you need to log in your Pulumi CLI to a service/storage that has your stack's state. Pulumi uses this Service/Storage to keep your current state and history of changes to your stack. So each successful update to your stack bu Pulumi also updates this storage to keep track of your stack's changes.
-There are many options to login in Pulumi 
+To manage your stack, you need to initialise your Pulumi CLI that sets up storage service which is used to manage your stack's state. Pulumi uses this Service/Storage to keep your current state and history of changes to your stack. So each successful update to your stack by Pulumi also updates this storage to keep track of your stack's changes.
+There are many options you can use to initialise the Pulumi stack.
 
 - Local storage
-- Pulumi SaaS (subscription-based)
+- Pulumi SaaS (subscription-based, Software as a Service)
 - Cloud blob storage (AWS s3, Azure Blob Storage)
 
-In this example, we use AWS S3 bucket as state storage for Pulumi. To login to the storage, you need to [install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) and also [generate an Access Key](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey) and [configure your AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration) to use that Access Key to communicate with AWS account 
+In this example, we use AWS S3 bucket as state storage for Pulumi. To login to the storage, you need to [install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) [generate an Access Key](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey) and [configure your AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration) to use that Access Key to communicate with AWS account 
 
-Using terminal create pulumi state bucket 
+Using a terminal, create the pulumi state bucket 
 
 
 ``` bash
@@ -138,7 +139,7 @@ In the meantime, we can have a look at what pulumi has created as source code. T
 
 ![Folder and file structure](images/Pulumi-file-structure.png)
 
-Inside this folder, there is `index.ts` file which is the primary source code for Pulumi. There is also `package.json` which is npm package file. There is two YAML file called `Pulumi.yaml` and `Pulumi.dev.yaml` the first file is the general configuration file for Pulumi. Configurations like `name`, `runtime` and `description`. The other YAML file is per environment. Depending on the number of environments you have you'll have `Pulumi.*.yaml` file currently we only have one environment in the project which is dev; Hence, we have `Pulumi.dev.yaml`. These YAML files are defining the configuration per environment. 
+Inside this folder, there is `index.ts` file which is the primary source code for Pulumi. There is also `package.json` which is npm package file. There are two YAML file called `Pulumi.yaml` and `Pulumi.dev.yaml` the first file is the general configuration file for Pulumi. Configurations like `name`, `runtime` and `description`. The other YAML file is per environment. Depending on the number of environments you have you'll have multiple `Pulumi.*.yaml` files. Currently we only have one environment in the project which is dev therefore we have `Pulumi.dev.yaml`. These YAML files are defining the configuration per environment. 
 
 ```  yaml
 encryptionsalt: <ENCRYPTIONSALT>
@@ -162,7 +163,7 @@ export const bucketName = bucket.id;
 
 ```
 
-There is only three lines of code here the first line is importing pulumi/aws package and alias that as `aws`. Then the next line is using this API to create a new S3 bucket called `my-bucket-123` and then in the last line exports the name of the bucket. 
+There are only three lines of code here. The first line is importing pulumi/aws package and alias as `aws`. The next line is using this API to create a new S3 bucket called `my-bucket-123`. The last line exports the name of the bucket. 
 
 
 
@@ -172,7 +173,7 @@ Now the initial setup of this sample is done, and we know what it is going to bu
 $ pulumi up
 ```
 
-Next, Pulumi asks you for the passphrase. Enter the same passphrase you have chosen during the initial setup. Then it analyses the current state of the environment (which in this case not created yet) and then reports back all the resources missing. It is essential to know that Pulumi does not create the resource straight away; it gets confirmation if you want to create those resources. Also, you can inspect the details of commands/resource it should create.
+Next, Pulumi asks you for the passphrase. Enter the same passphrase you have chosen during the initial setup. Then it analyses the current state of the environment (which in this case is not created yet) and then reports back all the resources missing. It is essential to know that Pulumi does not create the resource straight away; it asks for confirmation if you want to create those resources. This allows you to inspect the details of commands/resource it should create.
 
 ```
 Resources:
@@ -203,7 +204,7 @@ Resources:
 Duration: 10s
 ```
 
-Having executed command successfully, Pulumi returns output; in this case, it returns `my-bucket-123-0fe575c`. If you notice there is an extra 7 character added to the original name that we gave to the bucket. The reason is that Pulumi can create multiple sets of stacks on the same account/region. If it does not add the postfix to the name, it would be impossible to create the two resources with the same name. 
+Having executed command successfully, Pulumi produces some output. In this case it returns `my-bucket-123-0fe575c`. If you notice there is an extra 7 character added to the original name that we gave to the bucket. The reason is that Pulumi can create multiple sets of stacks on the same account/region. If it does not add the postfix to the name, it would be impossible to create the two resources with the same name. 
 
 Alright, so that was quite a simple example with Pulumi. This example is what I call the equivalent hello world in Pulumi. Now let's get into a more real-world scenario. In the next section, we want to create a web application backed by a secured database. 
 
@@ -216,7 +217,7 @@ Following is the AWS component diagram for out application
 
 ![AWS Beanstalk connected to RDS in private subnet](images/AWS-Secure-RDS.png)
 
-We have a VPC inside this VPC we have two subnets one is public, and the other one is the private subnet. We want to create our web application in our public subnet using Elastic Beanstalk and create our database in the private subnet, so it is not accessible from outside of the VPC. It is an excellent practice to keep your database secure. Our application is a Node.js application running in a docker container in Elastic Beanstalk. 
+We have one VPC amd inside this VPC we have two subnets. One is public, and the other one is the private subnet. We want to create our web application in our public subnet using Elastic Beanstalk and create our database in the private subnet so it is not accessible from outside of the VPC. This is a recommended practice to keep your database secure. Our application is a Node.js application running in a docker container in Elastic Beanstalk. 
 
 
 Let's have a look at the folder structure first:
@@ -227,9 +228,9 @@ Let's have a look at the folder structure first:
 
 #### Application code
 
-Let's start with the application source code. It is actually a simple application that tests the connection to the database. The following code snippet is `app.js` source code. First, we are assigning a few variables like Port and importing a few packages like MSSQL, HTTP, fs. Then we are defining a function called `try_connect_sql`. This function will attempt to connect to the database with the connection string passed to it. If it is successful, it returns `true`; otherwise, it returns `false`.  
+Let's start with the application source code. It is actually a simple application that tests the connection to the database. The following code snippet is in the `app.js` file. First, we are assigning a few variables like Port and importing a few packages like MSSQL, HTTP, fs. Then we are defining a function called `try_connect_sql`. This function will attempt to connect to the database with the connection string passed to it. If it is successful, it returns `true`; otherwise, it returns `false`.  
 
-The next block of code creates a simple HTTP server that responds to `GET` requests only. For any `GET` request, it attempts to connect to the database, and if the connection is successful it returns a page with a green background saying _Congratulations application is connected to RDS!_ and if could not connect to the database it returns a page with a red background saying _Unfortunately application is not connected to RDS!_.  
+The next block of code creates a simple HTTP server that responds to `GET` requests only. For any `GET` request, it attempts to connect to the database, and if the connection is successful it returns a page with a green background saying _Congratulations application is connected to RDS!_. If it could not connect to the database it returns a page with a red background saying _Unfortunately application is not connected to RDS!_.  
 
 In the end, it starts the server by listening to the Port and logs that the server has started.
 
@@ -273,7 +274,7 @@ console.log("Server running at http://127.0.0.1:" + port + "/");
 
 ```
 
-It is possible to run this simple app locally. If you want to test this, you can run `npm start` on the `src` folder. When you browse http://127.0.0.1:3000, if there is no database connection, it returns a red page, but if you have a database running, it returns a green page. You can run a SQL database in docker to test successful path by following this [document](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash).
+It is possible to run this simple app locally. If you want to test this, you can run `npm start` in the `src` folder. When you browse http://127.0.0.1:3000, if there is no database connection, it returns a red page, but if you have a database running, it returns a green page. You can run a SQL database in docker to test successful path by following this [document](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash).
 
 
 In the `package.json` file, there are two scripts, the first one is the `start` script and the second one is `package`.  This script, package up the app folder in zip format, later our infrastructure code deploys that zip file to Elastic BeansTalk.
@@ -291,7 +292,7 @@ In the `package.json` file, there are two scripts, the first one is the `start` 
 The infrastructure code is in the `infra` folder. It is written in `typescript` using Pulumi library.
 
 ##### Adding configuration 
-Pulumi encrypts secret in the configuration file using a `PASS_PHRASE` you choose and additional salt so it. Although it sounds like that is it safe to commit this configuration to repository, I didn't commit that. You can set your password and passphrase for Pulumi.
+Pulumi encrypts secret in the configuration file using a `PASS_PHRASE` you choose and an optional salt value to it. Although it sounds like that is it safe to commit this configuration to repository, I didn't commit that. You can set your password and passphrase for Pulumi using config secrets which are a more secure (and recommended) way to store sensitive data such as passphrases
 
 ```bash
 $ pulumi set config vpc_rds_dmz:dbPassword "[STRONG_DB_PASSWORD]" --secret
@@ -433,7 +434,7 @@ const tfenvtest = new aws.elasticbeanstalk.Environment("webapp-env", {
 export const endpointUrl = tfenvtest.endpointUrl;
 ```
 
-Let's go through different blocks of code and describe each block and what they mean. At the top it just imports different libraries `@pulumi/pulumi`, `@pulumi/aws` and `@pulumi/awsx` then, initialize the config object to get some values from the configuration file, in this case, the configuration value is `dbPassword` which we set up earlier. Then we create a VPC called `custom` using `awsx.ec2.Vpc` object. This class encapsulates a complete configuration of an AWS network, including the actual VPC itself, in addition to public and private subnets, route tables, and gateways, across multiple availability zones. But in this example, we use private and public subnet addresses to use for our DB and Elastic Beanstalk respectively.
+Let's go through different blocks of code to describe each block and what they mean. At the top it just imports different libraries `@pulumi/pulumi`, `@pulumi/aws` and `@pulumi/awsx` then, initialize the config object to get some values from the configuration file, in this case, the configuration value is `dbPassword` which we set up earlier. Then we create a VPC called `custom` using `awsx.ec2.Vpc` object. This class encapsulates a complete configuration of an AWS network, including the actual VPC itself, in addition to public and private subnets, route tables, and gateways, across multiple availability zones. But in this example, we use private and public subnet addresses to use for our DB and Elastic Beanstalk respectively.
 
 The next block creates a security group using `aws.ec2.SecurityGroup` to enable TCP ingress for SQL port. Later, we use this security group for our database. The next step is to create a subnet group with private subnet ids using `aws.rds.SubnetGroup`. 
 
@@ -446,7 +447,7 @@ The next step is to upload our `webapp` artifacts to s3 and make them ready for 
 $ npm run package
 ```
 
-This command packages up the whole `src` folder into a zip file called `deployment.zip`. Assuming we had already run this command and zip file is ready, the infrastructure code picks this zip file and upload to an S3 bucket called `eb-app-deploy` which is also created by infra code.
+This command packages up the whole `src` folder into a zip file called `deployment.zip`. Assuming we had already run this command and zip file is ready, the infrastructure code uploads this zip file to an S3 bucket called `eb-app-deploy` which is also created by our infrastructure code.
 
 Creating Elastic beanstalk is a bit more complected. There are a few things that should be ready before creating the application and environment.
 
@@ -460,7 +461,7 @@ Then we need to create the Elastic Beanstalk app itself. it is achievable by usi
 
 
 The next step is to create the connection string. We need to create the connection string based on values from our RDS and also database password (secure parameter we added to pulumi configuration).
-Before describing how we construct the connection string we should mention how inputs and outputs are working in pulumi. Pulumi create resources asynchronously which means outputs of a given resource might not be available immediately. 
+Before describing how we construct the connection string we should mention how inputs and outputs are working in pulumi. Pulumi creates resources asynchronously which means outputs of a given resource might not be available immediately in the next step in the sequence. 
 
 Pulumi uses a special type called output. According to pulumi documentation:
 
@@ -480,7 +481,7 @@ export const connectionString = pulumi
 
 This block of code is waiting for both address and port to become available and then when they are available runs apply function and return the connection string. 
 
-The final step is to create the environment for the Elastic Beanstalk application. This is achievable using `aws.elasticbeanstalk.Environment` class. We set the `app` parameter and `version` to previously created applications and versions. We also set the platform to "64bit Amazon Linux 2018.03 v4.13.1 running Node.js". The last property is setting which is an array of key/values. We set the `VPCId` to vpc and subnet to public subnet. `IamInstanceProfile` to the instance profile name we created earlier. `SecurityGroups` to the security group id we created. `CONNECTION_STRING` as environment variable and set the value to the connection string variable. 
+The final step is to create the environment for the Elastic Beanstalk application. This is achievable using `aws.elasticbeanstalk.Environment` class. We set the `app` parameter and `version` to previously created applications and versions. We also set the platform to "64bit Amazon Linux 2018.03 v4.13.1 running Node.js". The last property is setting which is an array of key/values. We set the `VPCId` to vpc and subnet to public subnet. `IamInstanceProfile` value is set to the instance profile name we created earlier. `SecurityGroups` is set to the security group id we created. `CONNECTION_STRING` is an environment variable and is set to the value of the connection string variable. 
 
 Then the last line returns the endpoint URL as an output so it will be printed out in console after running the pulumi command line.
 
