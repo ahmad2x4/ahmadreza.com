@@ -80,7 +80,7 @@ I want to go through setting up Pulumi and creating your first stack by what I c
 
 #### Setup Pulumi
 
-If you are using MACOS, you can use Homebrew to install Pulumi. To install Pulumi on other platforms, you can check [Install Pulumi](https://www.pulumi.com/docs/get-started/aws/install-pulumi/) 
+If you are using macOS, you can use Homebrew to install Pulumi. To install Pulumi on other platforms, you can check [Install Pulumi](https://www.pulumi.com/docs/get-started/aws/install-pulumi/) page.
 
 ```bash
 $ brew install pulumi
@@ -209,4 +209,4 @@ Duration: 10s
 
 Having executed command successfully, Pulumi produces some output. In this case it returns `my-bucket-123-0fe575c`. If you notice there is an extra 7 character added to the original name that we gave to the bucket. The reason is that Pulumi can create multiple sets of stacks on the same account/region. If it does not add the postfix to the name, it would be impossible to create the two resources with the same name. 
 
-Alright, so that was quite a simple example with Pulumi. This example is what I call the equivalent hello world in Pulumi. In the next blog post we are going to develop more real-world scenario. We are going to create a secure deployment of AWS RDS and Elastic Beanstalk with pulumi.
+Alright, so that was quite a simple example with Pulumi. This example is what I call the equivalent hello world in Pulumi. In the next blog post we are going to develop a more real-world scenario. We are going to create a secure deployment of AWS RDS and Elastic Beanstalk with pulumi.
