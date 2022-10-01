@@ -154,7 +154,7 @@ title-separator: "-"
 # Output options (more information on Jekyll's site)
 timezone: "Australia/Sydney"
 markdown: kramdown
-highlighter: rouge
+highlighter: pygments
 permalink: /:year/:month/:title/
 paginate: 5
 remote_theme: daattali/beautiful-jekyll
