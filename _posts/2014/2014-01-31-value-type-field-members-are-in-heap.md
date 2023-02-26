@@ -6,8 +6,9 @@ author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [.Net, C#, CLR, ValueType]
+excerpt_separator: <!--more-->
 ---
-I think developers are a bit confused about the concept of ValueTypes and Reference Type. Often I hear that all primitive data types and value types are in stack. First of all it is thread’s stack and it is not a single stack for application. Secondly, when we say value types are in stack it doesn't include field members of the class. Only method parameters and local variable which are value type will be in the thread’s stat. Field members, even if they are value type, will be in heap. Consider following example:
+I think developers are a bit confused about the concept of ValueTypes and Reference Type. Often I hear that all primitive data types and value types are in stack. First of all it is thread’s stack and it is not a single stack for application. Secondly, when we say value types are in stack it doesn't include field members of the class. <!--more--> Only method parameters and local variable which are value type will be in the thread’s stat. Field members, even if they are value type, will be in heap. Consider following example:
 
 ``` CSharp
 

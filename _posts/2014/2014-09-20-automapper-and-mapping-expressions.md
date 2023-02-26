@@ -6,8 +6,9 @@ author: ahmadreza
 comments: true
 categories: [Blog]
 tags: [.Net, AutoMapper, C#, MongoDB]
+excerpt_separator: <!--more-->
 ---
-AutoMapper is a great library helps developer to almost get rid of left hand right hand assignment between different types. In real world C# .net applications there are lots of scenarios developer wants to map different types of objects to each other. Normally it happens in system boundaries, like between UI and services or between ViewModel and Model. Without AutoMapper you have to do it for all properties every time you want to map to objects. This task is cumbersome, hard to test and bug prone. Automapper with does this for you with minimum cost. It has its own conventiones to facilitate type mapping. On top of built in defaults you as developer can teach Automapper new tricks.
+AutoMapper is a great library helps developer to almost get rid of left hand right hand assignment between different types. In real world C# .net applications there are lots of scenarios developer wants to map different types of objects to each other. Normally it happens in system boundaries, like between UI and services or between ViewModel and Model. <!--more--> Without AutoMapper you have to do it for all properties every time you want to map to objects. This task is cumbersome, hard to test and bug prone. Automapper with does this for you with minimum cost. It has its own conventiones to facilitate type mapping. On top of built in defaults you as developer can teach Automapper new tricks.
 
 You can find lots of blogs and articles of how to use AutoMapper. In fact [this](https://github.com/AutoMapper/AutoMapper/wiki/Getting-started), [this](https://cpratt.co/using-automapper-getting-started/) and [this](https://lostechies.com/jimmybogard/2009/01/23/automapper-the-object-object-mapper/) can help you.
 
