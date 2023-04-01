@@ -6,6 +6,7 @@ author: ahmadreza
 comments: false
 categories: [blog]
 tags: [AWS, CDK, ECS, ECR, EFS]
+shareimg: /img/How-to-construct-ECS-service-with-EFS-volume-using-CDK.png
 excerpt_separator: <!--more-->
 ---
 

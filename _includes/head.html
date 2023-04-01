@@ -85,8 +85,8 @@
   <link rel="canonical" href="{{ page.url | absolute_url | strip_index }}" />
   {% endif %}
 
-  {% if page.share-img %}
-  <meta property="og:image" content="{{ page.share-img }}" />
+  {% if page.shareimg %}
+  <meta property="og:image" content="{{ page.shareimg }}" />
   {% elsif site.avatar %}
   <meta property="og:image" content="{{ site.avatar | absolute_url }}" />
   {% endif %}
