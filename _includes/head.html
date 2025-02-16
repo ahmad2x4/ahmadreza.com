@@ -132,7 +132,7 @@
 
   <!-- Article Metadata -->
   <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
-  <meta property="article:author" content="{{ site.url }}/about/">
+  <meta property="article:author" content="{{ site.url }}/aboutme/">
   <meta property="article:section" content="Technology">
   {% for tag in page.tags %}
   <meta property="article:tag" content="{{ tag }}">
@@ -148,7 +148,7 @@
     "author": {
       "@type": "Person",
       "name": "{{ page.author }}",
-      "url": "{{ site.url }}/about/"
+      "url": "{{ site.url }}/aboutme/"
     },
     "datePublished": "{{ page.date | date_to_xmlschema }}",
     "description": "{{ page.description }}",
