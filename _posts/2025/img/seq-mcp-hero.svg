@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#f8fafc"/>
+  
+  <!-- SEQ Box -->
+  <rect x="50" y="100" width="200" height="200" rx="20" fill="#2563eb" opacity="0.9"/>
+  <text x="150" y="210" font-family="Arial" font-size="24" fill="white" text-anchor="middle">SEQ</text>
+  <text x="150" y="240" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Structured Logging</text>
+  
+  <!-- LLM Box -->
+  <rect x="550" y="100" width="200" height="200" rx="20" fill="#0891b2" opacity="0.9"/>
+  <text x="650" y="210" font-family="Arial" font-size="24" fill="white" text-anchor="middle">LLM</text>
+  <text x="650" y="240" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Natural Language</text>
+  
+  <!-- MCP Bridge -->
+  <rect x="300" y="150" width="200" height="100" rx="10" fill="#4f46e5" opacity="0.9"/>
+  <text x="400" y="200" font-family="Arial" font-size="20" fill="white" text-anchor="middle">MCP Server</text>
+  <text x="400" y="225" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Bridge</text>
+  
+  <!-- Connection Lines -->
+  <path d="M 250 200 L 300 200" stroke="#64748b" stroke-width="3"/>
+  <path d="M 500 200 L 550 200" stroke="#64748b" stroke-width="3"/>
+  
+  <!-- Data Flow Symbols -->
+  <g transform="translate(260, 180)">
+    <!-- Left to Right Data Flow -->
+    <path d="M 0,0 L 15,10 L 0,20 Z" fill="#64748b"/>
+  </g>
+  <g transform="translate(510, 180)">
+    <!-- Right to Left Data Flow -->
+    <path d="M 0,10 L 15,0 L 15,20 Z" fill="#64748b"/>
+  </g>
+  
+  <!-- JSON-like Structured Data -->
+  <rect x="75" y="270" width="150" height="60" rx="5" fill="#1e293b" opacity="0.7"/>
+  <text x="150" y="290" font-family="monospace" font-size="12" fill="white" text-anchor="middle">{</text>
+  <text x="150" y="305" font-family="monospace" font-size="12" fill="white" text-anchor="middle">"event": "log",</text>
+  <text x="150" y="320" font-family="monospace" font-size="12" fill="white" text-anchor="middle">"level": "info"</text>
+  
+  <!-- Natural Language Query -->
+  <rect x="575" y="270" width="150" height="60" rx="5" fill="#1e293b" opacity="0.7"/>
+  <text x="650" y="300" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Show me all errors</text>
+  <text x="650" y="315" font-family="Arial" font-size="12" fill="white" text-anchor="middle">from last hour</text>
+</svg>
