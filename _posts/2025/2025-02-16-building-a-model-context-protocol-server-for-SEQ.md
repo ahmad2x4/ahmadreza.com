@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Building a Model Context Protocol Server for SEQ Structured Logging
+description: Learn how to create a Model Context Protocol (MCP) server that enables LLMs to interact with SEQ structured logging. This integration brings natural language capabilities to log analysis and system monitoring.
 published: true
 author: ahmadreza
 comments: true
