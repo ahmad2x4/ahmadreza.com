@@ -6,10 +6,10 @@ author: ahmadreza
 comments: true
 categories: [blog]
 tags: [LLM, SEQ, Logging, Model Context Protocol, TypeScript]
-shareimg: /img/building-mcp-server-for-seq/seq-mcp-hero.svg
+shareimg: /img/building-mcp-server-for-seq/seq-mcp-hero.png
 excerpt_separator: <!--more-->
 ---
-![Hero image](/img/building-mcp-server-for-seq/seq-mcp-hero.svg)
+![Hero image](/img/building-mcp-server-for-seq/seq-mcp-hero.png)
 Large Language Models (LLMs) have become increasingly powerful, but their true potential emerges when they can interact with external tools and systems. As Mark Russinovich aptly described, giving LLMs the ability to use tools is like providing them with "arms and legs." In this post, I'll demonstrate how to create a Model Context Protocol (MCP) server that enables LLMs to interact with SEQ, a powerful structured logging and observability platform. <!--more-->
 
 ## Introduction
