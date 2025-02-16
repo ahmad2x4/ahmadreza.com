@@ -6,7 +6,7 @@ author: ahmadreza
 comments: true
 categories: [blog]
 tags: [LLM, SEQ, Logging, Model Context Protocol, TypeScript]
-shareimg: ../img/seq-mcp-hero.svg
+shareimg: /img/building-mcp-server-for-seq/seq-mcp-hero.svg
 excerpt_separator: <!--more-->
 ---
 
@@ -184,7 +184,7 @@ This will create the JavaScript files in `build/seq-server.js`.
 2. Create an API key in SEQ:
    - Navigate to Settings in your SEQ installation
    - Go to API Keys and create a new key with appropriate permissions
-   ![SEQ API Key](../img/seq-api-key-page.png)
+   ![SEQ API Key](/img/building-mcp-server-for-seq/seq-api-key-page.png)
 
 3. Configure the server in Claude for Desktop following the [installation guide](https://github.com/ahmad2x4/mcp-server-seq/blob/master/README.md#installation):
 
@@ -208,11 +208,11 @@ For detailed setup instructions, refer to the [Testing your server with Claude f
 
 Before we dive into using our SEQ MCP server, let's make sure Claude for Desktop is picking up the tools we've exposed. You can do this by looking for the hammer icon:
 
-![Claude tools](../img/claude.ai-tools-01.png)
+![Claude tools](/img/building-mcp-server-for-seq/claude.ai-tools-01.png)
 
 When you click on that button you'll see the list of installed tools. If you have successfully installed this MCP server you should see:
 
-![Claude tools](../img/claude.ai-tools-02.png)
+![Claude tools](/img/building-mcp-server-for-seq/claude.ai-tools-02.png)
 
 When we connect our SEQ MCP server to an LLM, we create a powerful tool for log analysis and system monitoring. Let's explore how this integration works in practice and see how it can help teams better understand their systems.
 
