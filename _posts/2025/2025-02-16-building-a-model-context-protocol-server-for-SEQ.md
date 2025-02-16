@@ -204,8 +204,6 @@ This will create the JavaScript files in `build/seq-server.js`.
 
 For detailed setup instructions, refer to the [Testing your server with Claude for Desktop](https://modelcontextprotocol.io/quickstart/server) guide.
 
-[Previous sections remain the same until Practical Usage]
-
 ## Practical Usage and Applications
 
 Before we dive into using our SEQ MCP server, let's make sure Claude for Desktop is picking up the tools we've exposed. You can do this by looking for the hammer icon:
